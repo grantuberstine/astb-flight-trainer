@@ -9,8 +9,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content & Questions
 
-- [ ] **CONT-01**: App includes 100+ MST questions covering arithmetic, algebra, geometry, word problems with detailed explanations
-- [ ] **CONT-02**: App includes 50+ RCT passage-based questions covering main idea, inference, vocabulary with explanations
+- [x] **CONT-01**: App includes 100+ MST questions covering arithmetic, algebra, geometry, word problems with detailed explanations
+- [x] **CONT-02**: App includes 50+ RCT passage-based questions covering main idea, inference, vocabulary with explanations
 - [ ] **CONT-03**: App includes 80+ MCT questions covering forces, machines, fluids, circuits, engines with explanations
 - [ ] **CONT-04**: App includes 80+ ANIT questions covering aerodynamics, instruments, naval terms, weather with explanations
 - [x] **CONT-05**: App includes 50+ SAT questions with cockpit-view-to-aircraft-orientation visual matching
@@ -78,8 +78,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Complete |
+| CONT-02 | Phase 2 | Complete |
 | CONT-03 | Phase 2 | Pending |
 | CONT-04 | Phase 2 | Pending |
 | CONT-05 | Phase 2 | Complete |
