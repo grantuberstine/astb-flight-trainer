@@ -28,10 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Data persists in IndexedDB and survives browser close, tab close, and system restart
   3. User can export all progress as a JSON file and import it back to restore state
   4. App runs entirely client-side with no backend calls
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 01-01: Project scaffold, routing, stores, persistence, export/import
+- [ ] 01-01-PLAN.md -- Project scaffold, types, IndexedDB storage adapter, Zustand stores, hydration gate
+- [ ] 01-02-PLAN.md -- App shell UI (routing, layout, pages), export/import, visual verification
 
 ### Phase 2: Quiz Engine and Content
 **Goal**: User can study any ASTB section with real practice questions, timed tests, and concept lessons that teach the material
@@ -89,7 +90,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Shell and Data Layer | 0/1 | Not started | - |
+| 1. App Shell and Data Layer | 0/2 | Not started | - |
 | 2. Quiz Engine and Content | 0/3 | Not started | - |
 | 3. Gamification and Dashboard | 0/2 | Not started | - |
 | 4. Adaptive Learning and Study Intelligence | 0/2 | Not started | - |
