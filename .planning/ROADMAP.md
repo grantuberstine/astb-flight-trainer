@@ -31,8 +31,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold, types, IndexedDB storage adapter, Zustand stores, hydration gate
-- [ ] 01-02-PLAN.md -- App shell UI (routing, layout, pages), export/import, visual verification
+- [x] 01-01-PLAN.md -- Project scaffold, types, IndexedDB storage adapter, Zustand stores, hydration gate
+- [x] 01-02-PLAN.md -- App shell UI (routing, layout, pages), export/import, visual verification
 
 ### Phase 2: Quiz Engine and Content
 **Goal**: User can study any ASTB section with real practice questions, timed tests, and concept lessons that teach the material
@@ -44,12 +44,13 @@ Plans:
   3. User can take timed practice tests that enforce real ASTB time pressure per section
   4. Each section has lesson/study content that teaches concepts before the user starts practicing
   5. User can take a full practice test covering all sections back-to-back with a combined score
-**Plans**: TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 02-01: Quiz engine core (rendering, evaluation, timer, explanations)
-- [ ] 02-02: Content authoring (MST, RCT, MCT, ANIT question banks + lessons)
-- [ ] 02-03: SAT visual renderer and content (cockpit-view spatial apperception questions)
+- [ ] 02-01-PLAN.md -- Quiz engine core: types, state machine, timer, UI components, lesson viewer, pages, routes
+- [ ] 02-02-PLAN.md -- MST + RCT question banks (150+ questions) and lesson content
+- [ ] 02-03-PLAN.md -- MCT + ANIT question banks (160+ questions) and lesson content
+- [ ] 02-04-PLAN.md -- SAT spatial renderer (Canvas cockpit view, aircraft silhouettes) and 50+ SAT questions
 
 ### Phase 3: Gamification and Dashboard
 **Goal**: User experiences an aviation-themed training game that motivates daily study through XP, ranks, streaks, and missions
@@ -91,6 +92,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. App Shell and Data Layer | 2/2 | Complete    | 2026-03-08 |
-| 2. Quiz Engine and Content | 0/3 | Not started | - |
+| 2. Quiz Engine and Content | 0/4 | Not started | - |
 | 3. Gamification and Dashboard | 0/2 | Not started | - |
 | 4. Adaptive Learning and Study Intelligence | 0/2 | Not started | - |
