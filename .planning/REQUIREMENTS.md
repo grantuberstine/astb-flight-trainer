@@ -13,7 +13,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CONT-02**: App includes 50+ RCT passage-based questions covering main idea, inference, vocabulary with explanations
 - [ ] **CONT-03**: App includes 80+ MCT questions covering forces, machines, fluids, circuits, engines with explanations
 - [ ] **CONT-04**: App includes 80+ ANIT questions covering aerodynamics, instruments, naval terms, weather with explanations
-- [ ] **CONT-05**: App includes 50+ SAT questions with cockpit-view-to-aircraft-orientation visual matching
+- [x] **CONT-05**: App includes 50+ SAT questions with cockpit-view-to-aircraft-orientation visual matching
 - [x] **CONT-06**: Each section has lesson/study content teaching concepts before practice
 - [x] **CONT-07**: Every question shows detailed explanation (why correct + why others wrong)
 
@@ -82,7 +82,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-02 | Phase 2 | Pending |
 | CONT-03 | Phase 2 | Pending |
 | CONT-04 | Phase 2 | Pending |
-| CONT-05 | Phase 2 | Pending |
+| CONT-05 | Phase 2 | Complete |
 | CONT-06 | Phase 2 | Complete |
 | CONT-07 | Phase 2 | Complete |
 | PRAC-01 | Phase 2 | Complete |
