@@ -15,6 +15,7 @@ export interface MultipleChoiceQuestion extends BaseQuestion {
   text: string;
   options: [string, string, string, string];
   correctAnswer: 0 | 1 | 2 | 3;
+  optionExplanations?: [string, string, string, string];
 }
 
 export interface PassageSubQuestion {
@@ -22,6 +23,7 @@ export interface PassageSubQuestion {
   options: [string, string, string, string];
   correctAnswer: 0 | 1 | 2 | 3;
   explanation: string;
+  optionExplanations?: [string, string, string, string];
 }
 
 export interface PassageQuestion extends BaseQuestion {
@@ -30,16 +32,19 @@ export interface PassageQuestion extends BaseQuestion {
   questions: PassageSubQuestion[];
 }
 
+export type CoastlinePosition = 'none' | 'left' | 'right' | 'ahead-left' | 'ahead-right';
+
 export interface SpatialScenarioParams {
   pitch: number;
   bank: number;
   heading: number;
-  coastline: string;
+  coastline: CoastlinePosition;
 }
 
 export interface SpatialQuestion extends BaseQuestion {
   type: 'spatial';
   scenarioParams: SpatialScenarioParams;
+  answerOptions: [SpatialScenarioParams, SpatialScenarioParams, SpatialScenarioParams, SpatialScenarioParams, SpatialScenarioParams];
   correctAnswer: 0 | 1 | 2 | 3 | 4;
 }
 

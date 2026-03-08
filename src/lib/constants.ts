@@ -24,6 +24,14 @@ export interface ASTBSection {
   color: string;
 }
 
+export const TIMED_TEST_CONFIG: Record<SectionId, { timeLimitSec: number; questionCount: number }> = {
+  MST: { timeLimitSec: 2400, questionCount: 30 },
+  RCT: { timeLimitSec: 1800, questionCount: 20 },
+  MCT: { timeLimitSec: 900, questionCount: 30 },
+  ANIT: { timeLimitSec: 900, questionCount: 30 },
+  SAT: { timeLimitSec: 600, questionCount: 25 },
+};
+
 export const ASTB_SECTIONS: ASTBSection[] = [
   {
     id: 'MST',
