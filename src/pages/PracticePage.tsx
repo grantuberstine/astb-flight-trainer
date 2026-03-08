@@ -1,4 +1,14 @@
-import { Target, Calculator, BookOpen, Wrench, Plane, Compass } from 'lucide-react';
+import { Link } from 'react-router';
+import {
+  Target,
+  Calculator,
+  BookOpen,
+  Wrench,
+  Plane,
+  Compass,
+  Clock,
+  Trophy,
+} from 'lucide-react';
 import { ASTB_SECTIONS } from '../lib/constants';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -12,9 +22,27 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export function PracticePage() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <Target className="h-8 w-8 text-gold-400" />
-        <h1 className="text-3xl font-bold">Practice Missions</h1>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <Target className="h-8 w-8 text-gold-400" />
+          <h1 className="text-3xl font-bold">Practice Missions</h1>
+        </div>
+        <div className="flex gap-2">
+          <Link
+            to="/timed-test"
+            className="flex items-center gap-1.5 rounded-lg border border-navy-500 px-3 py-2 text-sm font-medium text-navy-200 transition-colors hover:bg-navy-700"
+          >
+            <Clock className="h-4 w-4" />
+            Timed Test
+          </Link>
+          <Link
+            to="/full-test"
+            className="flex items-center gap-1.5 rounded-lg bg-gold-500 px-3 py-2 text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+          >
+            <Trophy className="h-4 w-4" />
+            Full Practice Test
+          </Link>
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -36,7 +64,23 @@ export function PracticePage() {
                   <h3 className="font-bold text-white">{section.name}</h3>
                 </div>
               </div>
-              <p className="text-sm text-navy-300">{section.description}</p>
+              <p className="mb-4 text-sm text-navy-300">
+                {section.description}
+              </p>
+              <div className="flex gap-2">
+                <Link
+                  to={`/practice/${section.id}/lesson`}
+                  className="flex-1 rounded-lg border border-navy-500 px-3 py-2 text-center text-sm font-medium text-navy-200 transition-colors hover:bg-navy-700"
+                >
+                  Study
+                </Link>
+                <Link
+                  to={`/practice/${section.id}`}
+                  className="flex-1 rounded-lg bg-gold-500 px-3 py-2 text-center text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+                >
+                  Practice
+                </Link>
+              </div>
             </div>
           );
         })}

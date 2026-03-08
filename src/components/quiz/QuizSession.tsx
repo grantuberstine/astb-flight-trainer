@@ -106,7 +106,7 @@ export function QuizSession({
           : null;
         const correctIdx = subQ
           ? subQ.correctAnswer
-          : currentQuestion.correctAnswer;
+          : (currentQuestion.type !== 'passage' ? currentQuestion.correctAnswer : 0);
         const correct = selected === correctIdx;
         const qId = isPassage
           ? `${currentQuestion.id}_sub${state.subQuestionIndex}`

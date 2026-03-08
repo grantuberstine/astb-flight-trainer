@@ -28,12 +28,9 @@ export function useCountdown(totalSeconds: number) {
   const pause = useCallback(() => {
     setIsPaused(true);
     clearTick();
-    // Store current remaining so resume can recalculate endTime
-    setRemaining((prev) => {
-      // Recalculate from endTime for accuracy
-      const now = Date.now();
-      return Math.max(0, Math.ceil((endTimeRef.current - now) / 1000));
-    });
+    // Recalculate from endTime for accuracy
+    const now = Date.now();
+    setRemaining(Math.max(0, Math.ceil((endTimeRef.current - now) / 1000)));
   }, [clearTick]);
 
   const resume = useCallback(() => {

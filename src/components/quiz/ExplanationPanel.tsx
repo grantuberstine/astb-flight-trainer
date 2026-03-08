@@ -28,11 +28,16 @@ export function ExplanationPanel({
     optionExplanations = question.optionExplanations;
     options = [...question.options];
     correctAnswer = question.correctAnswer;
-  } else {
+  } else if (question.type === 'spatial') {
     explanation = question.explanation;
     optionExplanations = undefined;
     options = [];
     correctAnswer = question.correctAnswer;
+  } else {
+    explanation = question.explanation;
+    optionExplanations = undefined;
+    options = [];
+    correctAnswer = 0;
   }
 
   const isCorrect = selectedAnswer === correctAnswer;

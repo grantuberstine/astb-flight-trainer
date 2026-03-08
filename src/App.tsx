@@ -5,6 +5,10 @@ import { DashboardPage } from './pages/DashboardPage';
 import { PracticePage } from './pages/PracticePage';
 import { ProgressPage } from './pages/ProgressPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { QuizPage } from './pages/QuizPage';
+import { LessonPage } from './pages/LessonPage';
+import { TimedTestPage } from './pages/TimedTestPage';
+import { FullTestPage } from './pages/FullTestPage';
 
 const router = createHashRouter([
   {
@@ -13,6 +17,11 @@ const router = createHashRouter([
     children: [
       { index: true, element: <DashboardPage /> },
       { path: 'practice', element: <PracticePage /> },
+      { path: 'practice/:sectionId', element: <QuizPage /> },
+      { path: 'practice/:sectionId/lesson', element: <LessonPage /> },
+      { path: 'timed-test', element: <TimedTestPage /> },
+      { path: 'timed-test/:sectionId', element: <QuizPage /> },
+      { path: 'full-test', element: <FullTestPage /> },
       { path: 'progress', element: <ProgressPage /> },
       { path: 'settings', element: <SettingsPage /> },
     ],
