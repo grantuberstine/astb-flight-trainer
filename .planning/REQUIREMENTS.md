@@ -40,9 +40,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Data & Infrastructure
 
-- [ ] **DATA-01**: Progress persists in IndexedDB (survives browser close and doesn't expire)
+- [x] **DATA-01**: Progress persists in IndexedDB (survives browser close and doesn't expire)
 - [ ] **DATA-02**: User can export/import progress as JSON backup
-- [ ] **DATA-03**: App works as a static web app — no backend or server required
+- [x] **DATA-03**: App works as a static web app — no backend or server required
 
 ## v2 Requirements
 
@@ -100,9 +100,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GAME-05 | Phase 3 | Pending |
 | GAME-06 | Phase 3 | Pending |
 | GAME-07 | Phase 3 | Pending |
-| DATA-01 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
 | DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
+| DATA-03 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 25 total
