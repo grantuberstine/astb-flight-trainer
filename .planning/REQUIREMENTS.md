@@ -14,18 +14,18 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CONT-03**: App includes 80+ MCT questions covering forces, machines, fluids, circuits, engines with explanations
 - [ ] **CONT-04**: App includes 80+ ANIT questions covering aerodynamics, instruments, naval terms, weather with explanations
 - [ ] **CONT-05**: App includes 50+ SAT questions with cockpit-view-to-aircraft-orientation visual matching
-- [ ] **CONT-06**: Each section has lesson/study content teaching concepts before practice
-- [ ] **CONT-07**: Every question shows detailed explanation (why correct + why others wrong)
+- [x] **CONT-06**: Each section has lesson/study content teaching concepts before practice
+- [x] **CONT-07**: Every question shows detailed explanation (why correct + why others wrong)
 
 ### Practice & Assessment
 
-- [ ] **PRAC-01**: User can practice any section independently
-- [ ] **PRAC-02**: User can take timed practice tests simulating real ASTB time pressure
+- [x] **PRAC-01**: User can practice any section independently
+- [x] **PRAC-02**: User can take timed practice tests simulating real ASTB time pressure
 - [ ] **PRAC-03**: App runs a diagnostic assessment to identify weak areas across all sections
 - [ ] **PRAC-04**: App adapts study recommendations based on performance (prioritize weak areas)
 - [ ] **PRAC-05**: Missed questions resurface via spaced repetition
 - [ ] **PRAC-06**: User can set test date and get a paced study plan
-- [ ] **PRAC-07**: User can take full practice test (all sections back-to-back)
+- [x] **PRAC-07**: User can take full practice test (all sections back-to-back)
 - [ ] **PRAC-08**: PBM concept trainer with directional reasoning and multitasking exercises
 
 ### Gamification
@@ -83,15 +83,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-03 | Phase 2 | Pending |
 | CONT-04 | Phase 2 | Pending |
 | CONT-05 | Phase 2 | Pending |
-| CONT-06 | Phase 2 | Pending |
-| CONT-07 | Phase 2 | Pending |
-| PRAC-01 | Phase 2 | Pending |
-| PRAC-02 | Phase 2 | Pending |
+| CONT-06 | Phase 2 | Complete |
+| CONT-07 | Phase 2 | Complete |
+| PRAC-01 | Phase 2 | Complete |
+| PRAC-02 | Phase 2 | Complete |
 | PRAC-03 | Phase 4 | Pending |
 | PRAC-04 | Phase 4 | Pending |
 | PRAC-05 | Phase 4 | Pending |
 | PRAC-06 | Phase 4 | Pending |
-| PRAC-07 | Phase 2 | Pending |
+| PRAC-07 | Phase 2 | Complete |
 | PRAC-08 | Phase 4 | Pending |
 | GAME-01 | Phase 3 | Pending |
 | GAME-02 | Phase 3 | Pending |
