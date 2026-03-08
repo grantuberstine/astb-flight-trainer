@@ -1,6 +1,7 @@
 import type { Question } from '../../types/question';
 import { MultipleChoiceCard } from './MultipleChoiceCard';
 import { PassageCard } from './PassageCard';
+import { SpatialCard } from './SpatialCard';
 
 interface QuestionCardProps {
   question: Question;
@@ -43,14 +44,13 @@ export function QuestionCard({
       );
     case 'spatial':
       return (
-        <div className="rounded-lg border-2 border-dashed border-navy-600 p-8 text-center">
-          <p className="text-lg font-medium text-navy-400">
-            SAT Spatial Renderer (Plan 04)
-          </p>
-          <p className="mt-1 text-sm text-navy-500">
-            Spatial question visualization will be implemented in a later plan.
-          </p>
-        </div>
+        <SpatialCard
+          question={question}
+          onAnswer={onAnswer}
+          disabled={disabled}
+          selectedAnswer={selectedAnswer}
+          showResult={showResult}
+        />
       );
     default:
       return null;
