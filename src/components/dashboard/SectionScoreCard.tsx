@@ -21,14 +21,14 @@ export function SectionScoreCard({ section, score }: SectionScoreCardProps) {
   const Icon = SECTION_ICONS[section.icon] ?? Calculator;
 
   return (
-    <div className="flex items-center gap-4 rounded-lg bg-navy-800 p-4">
+    <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
       <ProgressRing percentage={percentage} size={64} strokeWidth={5} label={`${percentage}%`} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <Icon className="h-4 w-4 shrink-0 text-gold-400" />
-          <h3 className="truncate text-sm font-semibold text-white">{section.name}</h3>
+          <Icon className="h-4 w-4 shrink-0 text-pink-400" />
+          <h3 className="truncate text-sm font-semibold text-slate-800">{section.name}</h3>
         </div>
-        <p className="mt-1 text-xs text-navy-400">
+        <p className="mt-1 text-xs text-slate-500">
           {score.correct}/{score.total} correct
         </p>
       </div>

@@ -24,20 +24,20 @@ export function PracticePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Target className="h-8 w-8 text-gold-400" />
-          <h1 className="text-3xl font-bold">Practice Missions</h1>
+          <Target className="h-8 w-8 text-pink-500" />
+          <h1 className="text-3xl font-bold text-slate-800">Practice Missions</h1>
         </div>
         <div className="flex gap-2">
           <Link
             to="/timed-test"
-            className="flex items-center gap-1.5 rounded-lg border border-navy-500 px-3 py-2 text-sm font-medium text-navy-200 transition-colors hover:bg-navy-700"
+            className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100"
           >
             <Clock className="h-4 w-4" />
             Timed Test
           </Link>
           <Link
             to="/full-test"
-            className="flex items-center gap-1.5 rounded-lg bg-gold-500 px-3 py-2 text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="flex items-center gap-1.5 rounded-xl bg-pink-400 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
           >
             <Trophy className="h-4 w-4" />
             Full Practice Test
@@ -51,32 +51,32 @@ export function PracticePage() {
           return (
             <div
               key={section.id}
-              className="rounded-lg bg-navy-800 p-6 transition-colors"
+              className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-colors"
             >
               <div className="mb-3 flex items-center gap-3">
                 <div className={`rounded-md bg-${section.color}/20 p-2`}>
                   <Icon className={`h-6 w-6 text-${section.color}`} />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-navy-300">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     {section.id}
                   </span>
-                  <h3 className="font-bold text-white">{section.name}</h3>
+                  <h3 className="font-bold text-slate-800">{section.name}</h3>
                 </div>
               </div>
-              <p className="mb-4 text-sm text-navy-300">
+              <p className="mb-4 text-sm text-slate-500">
                 {section.description}
               </p>
               <div className="flex gap-2">
                 <Link
                   to={`/practice/${section.id}/lesson`}
-                  className="flex-1 rounded-lg border border-navy-500 px-3 py-2 text-center text-sm font-medium text-navy-200 transition-colors hover:bg-navy-700"
+                  className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-center text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100"
                 >
                   Study
                 </Link>
                 <Link
                   to={`/practice/${section.id}`}
-                  className="flex-1 rounded-lg bg-gold-500 px-3 py-2 text-center text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+                  className="flex-1 rounded-xl bg-pink-400 px-3 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
                 >
                   Practice
                 </Link>

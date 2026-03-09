@@ -15,11 +15,11 @@ export function BadgeGrid() {
   const earnedIds = new Set(badges.map((b) => b.id));
 
   return (
-    <div className="rounded-lg bg-navy-800 p-4">
+    <div className="rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
       <div className="flex items-center gap-2">
-        <Award className="h-5 w-5 text-gold-400" />
-        <h3 className="font-bold text-white">Badges</h3>
-        <span className="ml-auto text-xs text-navy-400">
+        <Award className="h-5 w-5 text-pink-400" />
+        <h3 className="font-bold text-slate-800">Badges</h3>
+        <span className="ml-auto text-xs text-slate-500">
           {badges.length}/{BADGE_DEFINITIONS.length} earned
         </span>
       </div>
@@ -36,22 +36,22 @@ export function BadgeGrid() {
           return (
             <div
               key={def.id}
-              className={`relative rounded-lg border p-3 text-center transition-colors ${
+              className={`relative rounded-xl border p-3 text-center transition-all ${
                 earned
-                  ? 'border-gold-500/30 bg-navy-700'
-                  : 'border-navy-700 bg-navy-800 opacity-40 grayscale'
+                  ? 'border-pink-200 bg-pink-50'
+                  : 'border-slate-200 bg-white'
               }`}
             >
               {!earned && (
-                <Lock className="absolute right-1.5 top-1.5 h-3 w-3 text-navy-500" />
+                <Lock className="absolute right-1.5 top-1.5 h-3 w-3 text-slate-500" />
               )}
-              <Icon className={`mx-auto h-7 w-7 ${earned ? 'text-gold-400' : 'text-navy-500'}`} />
-              <p className="mt-1.5 text-xs font-semibold text-white">{def.name}</p>
-              <p className="mt-0.5 text-[10px] leading-tight text-navy-400">
+              <Icon className={`mx-auto h-7 w-7 ${earned ? 'text-pink-400' : 'text-slate-400'}`} />
+              <p className={`mt-1.5 text-xs font-semibold ${earned ? 'text-slate-800' : 'text-slate-500'}`}>{def.name}</p>
+              <p className={`mt-0.5 text-[10px] leading-tight ${earned ? 'text-slate-500' : 'text-slate-500'}`}>
                 {def.description}
               </p>
               {earnedDate && (
-                <p className="mt-1 text-[10px] text-gold-500">{earnedDate}</p>
+                <p className="mt-1 text-[10px] text-pink-500">{earnedDate}</p>
               )}
             </div>
           );

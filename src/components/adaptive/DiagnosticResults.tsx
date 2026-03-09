@@ -29,10 +29,10 @@ export function DiagnosticResults({ result }: DiagnosticResultsProps) {
   return (
     <div className="space-y-6">
       {/* Overall accuracy */}
-      <div className="flex flex-col items-center rounded-xl bg-navy-800 p-6">
-        <p className="mb-1 text-sm text-navy-300">Overall Accuracy</p>
-        <p className="text-5xl font-bold text-gold-400">{overallPct}%</p>
-        <p className="mt-1 text-sm text-navy-400">
+      <div className="flex flex-col items-center rounded-2xl bg-white shadow-sm border border-slate-100 p-6">
+        <p className="mb-1 text-sm text-slate-500">Overall Accuracy</p>
+        <p className="text-5xl font-bold text-pink-500">{overallPct}%</p>
+        <p className="mt-1 text-sm text-slate-500">
           {result.weakestSections.length > 0
             ? `Weakest: ${result.weakestSections.map(getSectionName).join(', ')}`
             : 'Great job across all sections!'}
@@ -41,26 +41,26 @@ export function DiagnosticResults({ result }: DiagnosticResultsProps) {
 
       {/* Per-section bars */}
       <div className="space-y-3">
-        <h3 className="text-lg font-semibold text-white">Section Breakdown</h3>
+        <h3 className="text-lg font-semibold text-slate-800">Section Breakdown</h3>
         {(Object.entries(result.sectionResults) as [SectionId, typeof result.sectionResults[SectionId]][]).map(
           ([sectionId, sectionResult]) => {
             const pct = Math.round(sectionResult.accuracy * 100);
             return (
               <div
                 key={sectionId}
-                className="rounded-lg border border-navy-700 bg-cockpit-gray p-4"
+                className="rounded-lg border border-slate-200 bg-slate-50 p-4"
               >
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-slate-800">
                     {getSectionName(sectionId)}
                   </span>
-                  <span className="text-xs text-navy-300">
+                  <span className="text-xs text-slate-500">
                     {sectionResult.correct}/{sectionResult.total} correct
                     {' '}&middot;{' '}
                     {getAccuracyLabel(sectionResult.accuracy)}
                   </span>
                 </div>
-                <div className="h-3 overflow-hidden rounded-full bg-navy-700">
+                <div className="h-3 overflow-hidden rounded-full bg-slate-200">
                   <div
                     className={`h-full rounded-full transition-all ${getAccuracyColor(sectionResult.accuracy)}`}
                     style={{ width: `${Math.max(pct, 2)}%` }}
@@ -71,7 +71,7 @@ export function DiagnosticResults({ result }: DiagnosticResultsProps) {
                     {sectionResult.weakTags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded bg-navy-700 px-2 py-0.5 text-xs text-navy-300"
+                        className="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-500"
                       >
                         {tag}
                       </span>
@@ -86,10 +86,10 @@ export function DiagnosticResults({ result }: DiagnosticResultsProps) {
 
       {/* Recommended focus */}
       {result.recommendedFocus.length > 0 && (
-        <div className="rounded-xl border border-warning/30 bg-navy-800 p-4">
+        <div className="rounded-2xl border border-warning/30 bg-white shadow-sm p-4">
           <div className="mb-2 flex items-center gap-2">
             <Target className="h-5 w-5 text-warning" />
-            <h3 className="font-semibold text-white">Focus on These</h3>
+            <h3 className="font-semibold text-slate-800">Focus on These</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {result.recommendedFocus.map((sectionId) => (

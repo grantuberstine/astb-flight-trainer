@@ -2,6 +2,7 @@ import type { SpatialQuestion } from '../../types/question';
 import { CockpitView } from '../spatial/CockpitView';
 import { AircraftSilhouette } from '../spatial/AircraftSilhouette';
 import { AnnotatedCockpit } from '../spatial/AnnotatedCockpit';
+import { HeadingIndicator } from '../spatial/HeadingIndicator';
 
 const LABELS = ['A', 'B', 'C', 'D', 'E'] as const;
 
@@ -22,18 +23,19 @@ export function SpatialCard({
 }: SpatialCardProps) {
   return (
     <div className="space-y-5">
-      {/* Cockpit view */}
-      <div className="flex justify-center">
+      {/* Cockpit view + heading indicator */}
+      <div className="flex flex-col items-center gap-2">
         <CockpitView
           pitch={question.scenarioParams.pitch}
           bank={question.scenarioParams.bank}
           heading={question.scenarioParams.heading}
           coastline={question.scenarioParams.coastline}
         />
+        <HeadingIndicator heading={question.scenarioParams.heading} width={300} />
       </div>
 
       {/* Prompt */}
-      <p className="text-center text-base font-medium text-navy-200">
+      <p className="text-center text-base font-medium text-slate-600">
         Which aircraft orientation matches this cockpit view?
       </p>
 
@@ -47,7 +49,7 @@ export function SpatialCard({
 
           return (
             <div key={idx} className="flex flex-col items-center gap-1">
-              <span className="text-xs font-bold text-navy-400">{LABELS[idx]}</span>
+              <span className="text-xs font-bold text-slate-500">{LABELS[idx]}</span>
               <AircraftSilhouette
                 pitch={option.pitch}
                 bank={option.bank}
@@ -57,7 +59,7 @@ export function SpatialCard({
                 incorrect={isIncorrect}
                 onClick={() => onAnswer(idx)}
                 disabled={disabled}
-                size={56}
+                size={120}
               />
             </div>
           );
@@ -66,11 +68,11 @@ export function SpatialCard({
 
       {/* Explanation with annotated cockpit */}
       {showResult && (
-        <div className="space-y-3 rounded-lg border border-navy-600 bg-navy-800/50 p-4">
+        <div className="space-y-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
           <div className="flex justify-center">
             <AnnotatedCockpit scenarioParams={question.scenarioParams} />
           </div>
-          <p className="text-sm leading-relaxed text-navy-200">
+          <p className="text-sm leading-relaxed text-slate-600">
             {question.explanation}
           </p>
         </div>

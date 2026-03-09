@@ -80,28 +80,28 @@ export function ChallengePage() {
     const sectionName = ASTB_SECTIONS.find((s) => s.id === challengeResult.sectionId)?.name ?? challengeResult.sectionId;
     return (
       <div className="mx-auto max-w-md space-y-6 py-12 text-center">
-        <div className="rounded-xl bg-navy-800 p-8">
+        <div className="rounded-2xl bg-white p-8 shadow-sm border border-slate-100">
           {challengeResult.isNewPB && (
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-4 py-2 text-lg font-bold text-gold-400">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-pink-50 px-4 py-2 text-lg font-bold text-pink-500">
               <Trophy className="h-6 w-6" />
               New Personal Best!
             </div>
           )}
 
-          <h2 className="text-2xl font-bold text-white">{sectionName} Challenge</h2>
+          <h2 className="text-2xl font-bold text-slate-800">{sectionName} Challenge</h2>
 
           <div className="mt-6 flex justify-center gap-8">
             <div>
-              <p className="text-3xl font-bold text-gold-400">{challengeResult.score}%</p>
-              <p className="text-sm text-navy-300">Score</p>
+              <p className="text-3xl font-bold text-pink-500">{challengeResult.score}%</p>
+              <p className="text-sm text-slate-500">Score</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white">{formatTime(challengeResult.timeMs)}</p>
-              <p className="text-sm text-navy-300">Time</p>
+              <p className="text-3xl font-bold text-slate-800">{formatTime(challengeResult.timeMs)}</p>
+              <p className="text-sm text-slate-500">Time</p>
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-center gap-1 text-sm text-gold-400">
+          <div className="mt-4 flex items-center justify-center gap-1 text-sm text-pink-500">
             <Zap className="h-4 w-4" />
             +25 XP earned
           </div>
@@ -113,7 +113,7 @@ export function ChallengePage() {
               setChallengeResult(null);
               setActiveSection(null);
             }}
-            className="flex-1 rounded-lg border border-navy-500 px-4 py-3 font-medium text-navy-200 transition-colors hover:bg-navy-700"
+            className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-medium text-slate-600 transition-colors hover:bg-slate-100"
           >
             Back to Challenges
           </button>
@@ -122,7 +122,7 @@ export function ChallengePage() {
               setChallengeResult(null);
               // Re-launch same section
             }}
-            className="flex-1 rounded-lg bg-gold-500 px-4 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="flex-1 rounded-xl bg-pink-400 px-4 py-3 font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
           >
             Try Again
           </button>
@@ -135,10 +135,10 @@ export function ChallengePage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Timer className="h-8 w-8 text-gold-400" />
+        <Timer className="h-8 w-8 text-pink-500" />
         <div>
-          <h1 className="text-3xl font-bold">Challenges</h1>
-          <p className="text-sm text-navy-300">
+          <h1 className="text-3xl font-bold text-slate-800">Challenges</h1>
+          <p className="text-sm text-slate-500">
             {CHALLENGE_QUESTION_COUNT} questions, {CHALLENGE_TIME_LIMIT_SEC} seconds. Beat your personal best.
           </p>
         </div>
@@ -152,46 +152,46 @@ export function ChallengePage() {
           return (
             <div
               key={section.id}
-              className="rounded-lg border border-navy-700 bg-navy-800 p-6"
+              className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
             >
               <div className="mb-3 flex items-center gap-3">
                 <div className={`rounded-md bg-${section.color}/20 p-2`}>
                   <Icon className={`h-6 w-6 text-${section.color}`} />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-navy-300">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     {section.id}
                   </span>
-                  <h3 className="font-bold text-white">{section.name}</h3>
+                  <h3 className="font-bold text-slate-800">{section.name}</h3>
                 </div>
               </div>
 
               {/* Personal best */}
-              <div className="mb-4 rounded-md bg-navy-900/50 p-3">
+              <div className="mb-4 rounded-xl bg-slate-50 p-3">
                 {best ? (
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-1.5 text-gold-400">
+                    <div className="flex items-center gap-1.5 text-pink-500">
                       <Trophy className="h-4 w-4" />
                       <span className="font-semibold">Personal Best</span>
                     </div>
-                    <div className="flex items-center gap-3 text-navy-200">
+                    <div className="flex items-center gap-3 text-slate-600">
                       <span className="font-bold">{best.score}%</span>
-                      <span className="text-navy-400">{formatTime(best.timeMs)}</span>
+                      <span className="text-slate-500">{formatTime(best.timeMs)}</span>
                     </div>
                   </div>
                 ) : (
-                  <p className="text-center text-sm text-navy-400">No record yet</p>
+                  <p className="text-center text-sm text-slate-500">No record yet</p>
                 )}
               </div>
 
-              <div className="flex items-center gap-3 text-xs text-navy-400 mb-4">
+              <div className="flex items-center gap-3 text-xs text-slate-500 mb-4">
                 <span>{CHALLENGE_QUESTION_COUNT} questions</span>
                 <span>{CHALLENGE_TIME_LIMIT_SEC}s time limit</span>
               </div>
 
               <button
                 onClick={() => setActiveSection(section.id)}
-                className="w-full rounded-lg bg-gold-500 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+                className="w-full rounded-xl bg-pink-400 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
               >
                 Start Challenge
               </button>

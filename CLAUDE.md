@@ -37,7 +37,7 @@ src/
 - **Question types:** Discriminated union (`MultipleChoiceQuestion | PassageQuestion | SpatialQuestion`)
 - **Content loading:** Dynamic `import()` per section via `src/data/questions/index.ts` for code splitting
 - **Persistence:** All stores use `indexedDBStorage` adapter, never localStorage
-- **Theming:** Aviation tokens — navy, gold, cockpit-gray
+- **Theming:** Soft feminine palette — pink, sky-blue, lavender, warm whites (Nunito Sans font)
 
 ## Commands
 

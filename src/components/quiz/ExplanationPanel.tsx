@@ -43,25 +43,25 @@ export function ExplanationPanel({
   const isCorrect = selectedAnswer === correctAnswer;
 
   return (
-    <div className="rounded-lg border border-navy-600 bg-navy-700 p-4 space-y-3">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 space-y-3 shadow-sm">
       <div className="flex items-center gap-2">
         {isCorrect ? (
-          <CheckCircle className="h-5 w-5 text-green-400" />
+          <CheckCircle className="h-5 w-5 text-emerald-500" />
         ) : (
-          <XCircle className="h-5 w-5 text-red-400" />
+          <XCircle className="h-5 w-5 text-red-500" />
         )}
         <span
-          className={`font-semibold ${isCorrect ? 'text-green-400' : 'text-red-400'}`}
+          className={`font-semibold ${isCorrect ? 'text-emerald-500' : 'text-red-500'}`}
         >
           {isCorrect ? 'Correct!' : 'Incorrect'}
         </span>
       </div>
 
-      <p className="text-sm text-navy-200">{explanation}</p>
+      <p className="text-sm text-slate-600">{explanation}</p>
 
       {optionExplanations && options.length > 0 && (
-        <div className="space-y-2 border-t border-navy-600 pt-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-navy-400">
+        <div className="space-y-2 border-t border-slate-200 pt-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Option Breakdown
           </p>
           {options.map((opt, idx) => {
@@ -71,15 +71,15 @@ export function ExplanationPanel({
                 key={idx}
                 className={`rounded-md p-2 text-sm ${
                   isCorrectOpt
-                    ? 'bg-green-500/10 text-green-300'
-                    : 'bg-navy-800/50 text-navy-400'
+                    ? 'bg-emerald-50 text-emerald-600'
+                    : 'bg-slate-50 text-slate-500'
                 }`}
               >
                 <div className="flex items-start gap-2">
                   {isCorrectOpt ? (
-                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-green-400" />
+                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
                   ) : (
-                    <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-navy-500" />
+                    <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
                   )}
                   <div>
                     <span className="font-medium">{opt}</span>

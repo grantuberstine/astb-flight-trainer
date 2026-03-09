@@ -11,31 +11,27 @@ export function ConceptCard({ card, index, total }: ConceptCardProps) {
   const DiagramComponent = card.svgDiagram;
 
   return (
-    <div className="rounded-xl bg-navy-800 p-6 space-y-4">
-      <h3 className="text-xl font-bold text-gold-400">{card.heading}</h3>
+    <div className="rounded-2xl bg-white shadow-sm border border-slate-100 p-6 space-y-4">
+      <h3 className="text-xl font-bold text-pink-500">{card.heading}</h3>
 
-      <p className="leading-relaxed text-navy-200">{card.content}</p>
+      <p className="leading-relaxed text-slate-600">{card.content}</p>
 
-      {DiagramComponent ? (
-        <div className="rounded-lg bg-navy-700/50 p-4">
+      {DiagramComponent && (
+        <div className="rounded-lg bg-slate-50 p-4">
           <DiagramComponent />
-        </div>
-      ) : (
-        <div className="flex h-32 items-center justify-center rounded-lg border-2 border-dashed border-navy-600">
-          <p className="text-sm text-navy-500">Diagram placeholder</p>
         </div>
       )}
 
       {card.keyTakeaway && (
-        <div className="flex items-start gap-2 rounded-lg bg-gold-500/10 border border-gold-500/20 p-3">
-          <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-          <p className="text-sm font-medium text-gold-300">
+        <div className="flex items-start gap-2 rounded-lg bg-pink-50 border border-pink-200 p-3">
+          <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-pink-500" />
+          <p className="text-sm font-medium text-pink-400">
             {card.keyTakeaway}
           </p>
         </div>
       )}
 
-      <p className="text-center text-xs text-navy-500">
+      <p className="text-center text-xs text-slate-500">
         Card {index + 1} of {total}
       </p>
     </div>

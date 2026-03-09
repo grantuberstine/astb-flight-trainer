@@ -67,15 +67,15 @@ export function FullTestPage() {
     return (
       <div className="mx-auto max-w-lg space-y-6 py-8">
         <div className="text-center">
-          <Shield className="mx-auto h-16 w-16 text-gold-400" />
-          <h1 className="mt-4 text-3xl font-bold">Full Practice Test</h1>
-          <p className="mt-2 text-navy-300">
+          <Shield className="mx-auto h-16 w-16 text-pink-500" />
+          <h1 className="mt-4 text-3xl font-bold text-slate-800">Full Practice Test</h1>
+          <p className="mt-2 text-slate-500">
             Complete all 5 ASTB sections back-to-back, just like the real exam.
           </p>
         </div>
 
-        <div className="rounded-xl bg-navy-800 p-6">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-navy-400">
+        <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">
             Mission Briefing
           </h2>
           <div className="space-y-3">
@@ -87,18 +87,18 @@ export function FullTestPage() {
               return (
                 <div
                   key={id}
-                  className="flex items-center gap-3 rounded-lg bg-navy-700/50 p-3"
+                  className="flex items-center gap-3 rounded-xl bg-slate-50 p-3"
                 >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-navy-600 text-xs font-bold text-navy-300">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-500">
                     {idx + 1}
                   </span>
-                  <Icon className="h-5 w-5 text-navy-300" />
+                  <Icon className="h-5 w-5 text-slate-500" />
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-white">
+                    <p className="text-sm font-medium text-slate-800">
                       {section.name}
                     </p>
                   </div>
-                  <span className="text-xs text-navy-400">
+                  <span className="text-xs text-slate-500">
                     {config.questionCount}q
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export function FullTestPage() {
 
         <button
           onClick={() => setStage('testing')}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-500 py-3 text-lg font-bold text-navy-900 transition-colors hover:bg-gold-400"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 py-3 text-lg font-bold text-white transition-colors hover:bg-pink-500 shadow-sm"
         >
           Begin Test
           <ChevronRight className="h-5 w-5" />
@@ -123,7 +123,7 @@ export function FullTestPage() {
     const config = TIMED_TEST_CONFIG[currentSectionId];
     return (
       <div className="space-y-2">
-        <p className="text-center text-xs font-semibold uppercase tracking-wider text-navy-400">
+        <p className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500">
           Section {currentSectionIdx + 1} of {SECTION_ORDER.length}
         </p>
         <QuizSession
@@ -151,24 +151,24 @@ export function FullTestPage() {
 
     return (
       <div className="mx-auto max-w-md space-y-6 py-12 text-center">
-        <h2 className="text-2xl font-bold text-white">Section Complete</h2>
-        <div className="rounded-xl bg-navy-800 p-6">
-          <p className="text-sm text-navy-400">{sectionName}</p>
-          <p className="mt-2 text-4xl font-bold text-gold-400">
+        <h2 className="text-2xl font-bold text-slate-800">Section Complete</h2>
+        <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <p className="text-sm text-slate-500">{sectionName}</p>
+          <p className="mt-2 text-4xl font-bold text-pink-500">
             {correct}/{total}
           </p>
-          <p className="text-sm text-navy-300">correct</p>
+          <p className="text-sm text-slate-500">correct</p>
         </div>
 
         {nextSection && (
-          <div className="text-sm text-navy-400">
-            Up next: <span className="text-white">{nextSection.name}</span>
+          <div className="text-sm text-slate-500">
+            Up next: <span className="text-slate-800">{nextSection.name}</span>
           </div>
         )}
 
         <button
           onClick={handleNextSection}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-500 py-3 font-bold text-navy-900 transition-colors hover:bg-gold-400"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 py-3 font-bold text-white transition-colors hover:bg-pink-500 shadow-sm"
         >
           Continue to Next Section
           <ChevronRight className="h-5 w-5" />
@@ -189,18 +189,18 @@ export function FullTestPage() {
   return (
     <div className="mx-auto max-w-lg space-y-6 py-8">
       <div className="text-center">
-        <Trophy className="mx-auto h-16 w-16 text-gold-400" />
-        <h1 className="mt-4 text-3xl font-bold">Mission Complete</h1>
-        <p className="mt-2 text-4xl font-bold text-gold-400">
+        <Trophy className="mx-auto h-16 w-16 text-pink-500" />
+        <h1 className="mt-4 text-3xl font-bold text-slate-800">Mission Complete</h1>
+        <p className="mt-2 text-4xl font-bold text-pink-500">
           {overallPercent}%
         </p>
-        <p className="text-navy-300">
+        <p className="text-slate-500">
           {totalCorrect} of {totalQuestions} correct
         </p>
       </div>
 
-      <div className="rounded-xl bg-navy-800 p-6">
-        <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-navy-400">
+      <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+        <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">
           Section Breakdown
         </h2>
         <div className="space-y-3">
@@ -217,19 +217,19 @@ export function FullTestPage() {
             return (
               <div
                 key={result.sectionId}
-                className="flex items-center gap-3 rounded-lg bg-navy-700/50 p-3"
+                className="flex items-center gap-3 rounded-xl bg-slate-50 p-3"
               >
-                <Icon className="h-5 w-5 text-navy-300" />
+                <Icon className="h-5 w-5 text-slate-500" />
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-white">
+                  <p className="text-sm font-medium text-slate-800">
                     {section?.name ?? result.sectionId}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-bold text-white">
+                  <p className="text-sm font-bold text-slate-800">
                     {correct}/{total}
                   </p>
-                  <p className="text-xs text-navy-400">{pct}%</p>
+                  <p className="text-xs text-slate-500">{pct}%</p>
                 </div>
               </div>
             );
@@ -244,13 +244,13 @@ export function FullTestPage() {
             setCurrentSectionIdx(0);
             setStage('briefing');
           }}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-500 py-3 font-semibold text-navy-900 hover:bg-gold-400"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 py-3 font-semibold text-white hover:bg-pink-500 shadow-sm"
         >
           Take Again
         </button>
         <button
           onClick={() => navigate('/practice')}
-          className="flex w-full items-center justify-center gap-2 rounded-lg border border-navy-600 py-3 font-medium text-navy-300 hover:bg-navy-700"
+          className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 font-medium text-slate-500 hover:bg-slate-50"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Practice

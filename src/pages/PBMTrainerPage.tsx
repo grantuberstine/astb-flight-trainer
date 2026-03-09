@@ -15,7 +15,7 @@ export function PBMTrainerPage() {
       {/* Back link */}
       <Link
         to="/"
-        className="inline-flex items-center gap-1 text-sm text-navy-400 hover:text-white transition-colors"
+        className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-800 transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Dashboard
@@ -23,19 +23,19 @@ export function PBMTrainerPage() {
 
       {/* Header */}
       <div className="flex items-center gap-3">
-        <Compass className="h-8 w-8 text-gold-400" />
+        <Compass className="h-8 w-8 text-pink-500" />
         <div>
-          <h1 className="text-3xl font-bold">PBM Trainer</h1>
-          <p className="text-sm text-navy-300">
+          <h1 className="text-3xl font-bold text-slate-800">PBM Trainer</h1>
+          <p className="text-sm text-slate-500">
             Performance Based Measures concept exercises
           </p>
         </div>
       </div>
 
       {/* Info card */}
-      <div className="rounded-lg border border-navy-700 bg-navy-800/50 p-4 text-sm text-navy-300">
+      <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm text-sm text-slate-500">
         <p>
-          <span className="font-semibold text-white">Performance Based Measures (PBM)</span> tests
+          <span className="font-semibold text-slate-800">Performance Based Measures (PBM)</span> tests
           your multitasking ability, spatial orientation, and divided attention. While the real test
           uses a joystick and throttle, these exercises build the cognitive skills that matter.
         </p>
@@ -45,10 +45,10 @@ export function PBMTrainerPage() {
       <div className="flex gap-2">
         <button
           onClick={() => setActiveTab('directional')}
-          className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors ${
+          className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
             activeTab === 'directional'
-              ? 'bg-navy-700 text-gold-400 ring-1 ring-gold-400/50'
-              : 'bg-navy-800 text-navy-300 hover:text-white'
+              ? 'bg-slate-50 text-pink-500 ring-1 ring-pink-300/50'
+              : 'bg-white text-slate-500 hover:text-slate-800 border border-slate-100'
           }`}
         >
           <Compass className="h-4 w-4" />
@@ -56,10 +56,10 @@ export function PBMTrainerPage() {
         </button>
         <button
           onClick={() => setActiveTab('divided')}
-          className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors ${
+          className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
             activeTab === 'divided'
-              ? 'bg-navy-700 text-gold-400 ring-1 ring-gold-400/50'
-              : 'bg-navy-800 text-navy-300 hover:text-white'
+              ? 'bg-slate-50 text-pink-500 ring-1 ring-pink-300/50'
+              : 'bg-white text-slate-500 hover:text-slate-800 border border-slate-100'
           }`}
         >
           <Layers className="h-4 w-4" />

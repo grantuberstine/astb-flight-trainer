@@ -70,33 +70,33 @@ export function SettingsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Settings className="h-8 w-8 text-gold-400" />
-        <h1 className="text-3xl font-bold">Settings</h1>
+        <Settings className="h-8 w-8 text-pink-500" />
+        <h1 className="text-3xl font-bold text-slate-800">Settings</h1>
       </div>
 
       {/* Data Management */}
-      <div className="rounded-lg bg-navy-800 p-6">
-        <h2 className="mb-4 text-xl font-semibold">Data Management</h2>
+      <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+        <h2 className="mb-4 text-xl font-semibold text-slate-800">Data Management</h2>
 
         <div className="space-y-4">
           <div>
-            <p className="mb-2 text-sm text-navy-300">
+            <p className="mb-2 text-sm text-slate-500">
               Download a backup of all your progress, scores, and settings.
             </p>
             <button
               onClick={handleExport}
-              className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-4 py-2 font-medium text-navy-900 transition-colors hover:bg-gold-400"
+              className="inline-flex items-center gap-2 rounded-xl bg-pink-400 px-4 py-2 font-medium text-white transition-colors hover:bg-pink-500 shadow-sm"
             >
               <Download className="h-4 w-4" />
               Download Backup
             </button>
           </div>
 
-          <div className="border-t border-navy-700 pt-4">
-            <p className="mb-2 text-sm text-navy-300">
+          <div className="border-t border-slate-200 pt-4">
+            <p className="mb-2 text-sm text-slate-500">
               Restore your data from a previously downloaded backup file.
             </p>
-            <label className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-navy-600 px-4 py-2 font-medium text-white transition-colors hover:bg-navy-700">
+            <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 font-medium text-slate-600 transition-colors hover:bg-slate-50">
               <Upload className="h-4 w-4" />
               Restore Backup
               <input
@@ -111,10 +111,10 @@ export function SettingsPage() {
 
           {importStatus && (
             <div
-              className={`rounded-md p-3 text-sm ${
+              className={`rounded-xl p-3 text-sm ${
                 importStatus.type === 'success'
-                  ? 'bg-success/20 text-success'
-                  : 'bg-danger/20 text-danger'
+                  ? 'bg-emerald-50 text-emerald-600'
+                  : 'bg-red-50 text-red-600'
               }`}
             >
               {importStatus.message}
@@ -124,9 +124,9 @@ export function SettingsPage() {
       </div>
 
       {/* Adaptive Learning */}
-      <div className="rounded-lg bg-navy-800 p-6">
-        <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold">
-          <Zap className="h-5 w-5 text-gold-400" />
+      <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold text-slate-800">
+          <Zap className="h-5 w-5 text-pink-500" />
           Adaptive Learning
         </h2>
 
@@ -134,15 +134,15 @@ export function SettingsPage() {
           {/* Adaptive mode toggle */}
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-white">Adaptive Mode</p>
-              <p className="text-xs text-navy-400">
+              <p className="text-sm font-medium text-slate-800">Adaptive Mode</p>
+              <p className="text-xs text-slate-500">
                 Prioritizes weak areas and review cards in practice sessions
               </p>
             </div>
             <button
               onClick={() => setAdaptiveMode(!adaptiveMode)}
               className={`relative h-6 w-11 rounded-full transition-colors ${
-                adaptiveMode ? 'bg-gold-500' : 'bg-navy-600'
+                adaptiveMode ? 'bg-pink-400' : 'bg-slate-200'
               }`}
               aria-label={adaptiveMode ? 'Disable adaptive mode' : 'Enable adaptive mode'}
             >
@@ -156,17 +156,17 @@ export function SettingsPage() {
 
           {/* Last diagnostic date */}
           {lastDiagnosticAt && (
-            <div className="text-sm text-navy-300">
+            <div className="text-sm text-slate-500">
               Last diagnostic:{' '}
-              <span className="text-white">
+              <span className="text-slate-800">
                 {new Date(lastDiagnosticAt).toLocaleDateString()}
               </span>
             </div>
           )}
 
           {/* Reset adaptive data */}
-          <div className="border-t border-navy-700 pt-4">
-            <p className="mb-2 text-sm text-navy-300">
+          <div className="border-t border-slate-200 pt-4">
+            <p className="mb-2 text-sm text-slate-500">
               Clear all spaced repetition cards, diagnostic results, and study plan data.
             </p>
             <button
@@ -176,7 +176,7 @@ export function SettingsPage() {
                 );
                 if (confirmed) resetAdaptive();
               }}
-              className="inline-flex items-center gap-2 rounded-md border border-warning px-4 py-2 text-sm font-medium text-warning transition-colors hover:bg-warning/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-100"
             >
               <Trash2 className="h-4 w-4" />
               Reset Adaptive Data
@@ -186,14 +186,14 @@ export function SettingsPage() {
       </div>
 
       {/* About */}
-      <div className="rounded-lg bg-navy-800 p-6">
-        <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold">
+      <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold text-slate-800">
           <Info className="h-5 w-5" />
           About
         </h2>
-        <div className="space-y-1 text-sm text-navy-300">
+        <div className="space-y-1 text-sm text-slate-500">
           <p>
-            <span className="font-medium text-white">ASTB Flight Trainer</span>{' '}
+            <span className="font-medium text-slate-800">ASTB Flight Trainer</span>{' '}
             v1.0.0
           </p>
           <p>A free, client-side study tool for the ASTB-E exam.</p>
@@ -202,15 +202,15 @@ export function SettingsPage() {
       </div>
 
       {/* Danger Zone */}
-      <div className="rounded-lg border border-danger/30 bg-navy-800 p-6">
-        <h2 className="mb-4 text-xl font-semibold text-danger">Danger Zone</h2>
-        <p className="mb-3 text-sm text-navy-300">
+      <div className="rounded-2xl border border-red-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-xl font-semibold text-red-600">Danger Zone</h2>
+        <p className="mb-3 text-sm text-slate-500">
           Permanently delete all your progress, scores, and settings. This
           cannot be undone.
         </p>
         <button
           onClick={handleReset}
-          className="inline-flex items-center gap-2 rounded-md border border-danger px-4 py-2 font-medium text-danger transition-colors hover:bg-danger hover:text-white"
+          className="inline-flex items-center gap-2 rounded-xl bg-red-50 border border-red-200 px-4 py-2 font-medium text-red-600 transition-colors hover:bg-red-100"
         >
           <Trash2 className="h-4 w-4" />
           Reset All Progress

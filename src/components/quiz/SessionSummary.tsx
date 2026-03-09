@@ -39,46 +39,46 @@ export function SessionSummary({
 
   return (
     <div className="mx-auto max-w-md space-y-6">
-      <div className="rounded-xl bg-navy-800 p-6 text-center">
+      <div className="rounded-2xl bg-white p-6 text-center shadow-sm border border-slate-100">
         <Trophy
-          className={`mx-auto h-12 w-12 ${percentage >= 80 ? 'text-gold-400' : 'text-navy-400'}`}
+          className={`mx-auto h-12 w-12 ${percentage >= 80 ? 'text-pink-400' : 'text-slate-500'}`}
         />
-        <h2 className="mt-3 text-2xl font-bold text-white">
-          Mission Debrief
+        <h2 className="mt-3 text-2xl font-bold text-slate-800">
+          Session Complete
         </h2>
-        <p className="text-sm text-navy-300">{sectionName}</p>
+        <p className="text-sm text-slate-500">{sectionName}</p>
 
         <div className="mt-6 flex justify-center gap-8">
           <div>
-            <p className="text-3xl font-bold text-gold-400">
+            <p className="text-3xl font-bold text-pink-500">
               {correct}/{total}
             </p>
-            <p className="text-xs text-navy-400">Correct</p>
+            <p className="text-xs text-slate-500">Correct</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white">{percentage}%</p>
-            <p className="text-xs text-navy-400">Score</p>
+            <p className="text-3xl font-bold text-slate-800">{percentage}%</p>
+            <p className="text-xs text-slate-500">Score</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-slate-800">
               {minutes}:{String(seconds).padStart(2, '0')}
             </p>
-            <p className="text-xs text-navy-400">Time</p>
+            <p className="text-xs text-slate-500">Time</p>
           </div>
         </div>
       </div>
 
       {/* Gamification summary */}
       {sessionXP > 0 && (
-        <div className="rounded-xl bg-navy-800 p-4">
+        <div className="rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
           <div className="flex items-center gap-2">
-            <Star className="h-5 w-5 text-gold-400" />
-            <span className="font-bold text-gold-400">+{sessionXP} XP</span>
-            <span className="text-sm text-navy-400">earned this session</span>
+            <Star className="h-5 w-5 text-pink-400" />
+            <span className="font-bold text-pink-500">+{sessionXP} XP</span>
+            <span className="text-sm text-slate-500">earned this session</span>
           </div>
 
           {percentage === 100 && (
-            <p className="mt-1 text-xs text-gold-300">
+            <p className="mt-1 text-xs text-pink-400">
               Perfect session bonus included!
             </p>
           )}
@@ -87,17 +87,17 @@ export function SessionSummary({
 
       {/* New badges */}
       {earnedBadgeDefs.length > 0 && (
-        <div className="rounded-xl bg-navy-800 p-4">
+        <div className="rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
           <div className="mb-2 flex items-center gap-2">
-            <Award className="h-5 w-5 text-gold-400" />
-            <span className="font-bold text-white">New Badges Earned!</span>
+            <Award className="h-5 w-5 text-pink-400" />
+            <span className="font-bold text-slate-800">New Badges Earned!</span>
           </div>
           <div className="space-y-2">
             {earnedBadgeDefs.map((def) =>
               def ? (
                 <div key={def.id} className="flex items-center gap-2 text-sm">
-                  <span className="font-semibold text-gold-400">{def.name}</span>
-                  <span className="text-navy-400">-- {def.description}</span>
+                  <span className="font-semibold text-pink-500">{def.name}</span>
+                  <span className="text-slate-500">-- {def.description}</span>
                 </div>
               ) : null,
             )}
@@ -108,7 +108,7 @@ export function SessionSummary({
       <div className="space-y-2">
         <button
           onClick={onPracticeAgain}
-          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-500 px-4 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 px-4 py-3 font-semibold text-white transition-colors hover:bg-pink-500"
         >
           <RotateCcw className="h-4 w-4" />
           Practice Again
@@ -117,7 +117,7 @@ export function SessionSummary({
         {hasMistakes && (
           <button
             onClick={onReviewMistakes}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-navy-500 px-4 py-3 font-semibold text-navy-200 transition-colors hover:bg-navy-700"
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3 font-semibold text-slate-600 transition-colors hover:bg-slate-50"
           >
             <Search className="h-4 w-4" />
             Review Mistakes
@@ -126,7 +126,7 @@ export function SessionSummary({
 
         <button
           onClick={onBackToSections}
-          className="flex w-full items-center justify-center gap-2 rounded-lg border border-navy-600 px-4 py-3 font-medium text-navy-400 transition-colors hover:bg-navy-800"
+          className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3 font-medium text-slate-500 transition-colors hover:bg-slate-50"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Sections

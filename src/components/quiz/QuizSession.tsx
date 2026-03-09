@@ -218,8 +218,8 @@ export function QuizSession({
   if (state.status === 'idle' || state.status === 'loading') {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-gold-400" />
-        <p className="text-navy-300">Loading questions...</p>
+        <Loader2 className="h-8 w-8 animate-spin text-pink-400" />
+        <p className="text-slate-500">Loading questions...</p>
       </div>
     );
   }
@@ -229,15 +229,15 @@ export function QuizSession({
     if (state.questions.length === 0) {
       return (
         <div className="py-20 text-center">
-          <p className="text-lg font-medium text-navy-300">
+          <p className="text-lg font-medium text-slate-500">
             No questions available for this section yet.
           </p>
-          <p className="mt-1 text-sm text-navy-400">
+          <p className="mt-1 text-sm text-slate-500">
             Questions are coming soon!
           </p>
           <button
             onClick={() => navigate('/practice')}
-            className="mt-6 rounded-lg bg-gold-500 px-6 py-2.5 font-semibold text-navy-900 hover:bg-gold-400"
+            className="mt-6 rounded-xl bg-pink-400 px-6 py-2.5 font-semibold text-white hover:bg-pink-500"
           >
             Back to Sections
           </button>
@@ -273,9 +273,9 @@ export function QuizSession({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-lg font-bold text-white">{sectionName}</h2>
+          <h2 className="text-lg font-bold text-slate-800">{sectionName}</h2>
           {adaptiveMode && (
-            <span className="flex items-center gap-1 rounded bg-gold-500/20 px-2 py-0.5 text-xs font-medium text-gold-400">
+            <span className="flex items-center gap-1 rounded bg-pink-50 px-2 py-0.5 text-xs font-medium text-pink-500">
               <Zap className="h-3 w-3" />
               Adaptive
             </span>
@@ -283,7 +283,7 @@ export function QuizSession({
         </div>
         <button
           onClick={() => setShowQuitDialog(true)}
-          className="rounded-lg border border-navy-600 px-3 py-1.5 text-sm text-navy-300 hover:bg-navy-700"
+          className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-500 hover:bg-slate-50"
         >
           Quit
         </button>
@@ -303,7 +303,7 @@ export function QuizSession({
 
       {/* Question */}
       {currentQuestion && (
-        <div className="rounded-xl bg-navy-800 p-6">
+        <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
           <QuestionCard
             question={currentQuestion}
             subIndex={state.subQuestionIndex}
@@ -329,7 +329,7 @@ export function QuizSession({
           />
           <button
             onClick={handleNext}
-            className="w-full rounded-lg bg-gold-500 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="w-full rounded-xl bg-pink-400 py-3 font-semibold text-white transition-colors hover:bg-pink-500"
           >
             Next
           </button>

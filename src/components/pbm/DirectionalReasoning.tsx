@@ -86,19 +86,19 @@ function CompassRose({ heading }: { heading: number }) {
   const rotation = -heading;
   return (
     <svg viewBox="0 0 120 120" className="mx-auto h-28 w-28" aria-label={`Compass showing heading ${heading}`}>
-      <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" className="text-navy-600" strokeWidth="2" />
+      <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" className="text-slate-400" strokeWidth="2" />
       {/* Cardinal labels */}
-      <text x="60" y="16" textAnchor="middle" className="fill-navy-300 text-[10px] font-bold">N</text>
-      <text x="108" y="64" textAnchor="middle" className="fill-navy-300 text-[10px] font-bold">E</text>
-      <text x="60" y="114" textAnchor="middle" className="fill-navy-300 text-[10px] font-bold">S</text>
-      <text x="12" y="64" textAnchor="middle" className="fill-navy-300 text-[10px] font-bold">W</text>
+      <text x="60" y="16" textAnchor="middle" className="fill-slate-500 text-[10px] font-bold">N</text>
+      <text x="108" y="64" textAnchor="middle" className="fill-slate-500 text-[10px] font-bold">E</text>
+      <text x="60" y="114" textAnchor="middle" className="fill-slate-500 text-[10px] font-bold">S</text>
+      <text x="12" y="64" textAnchor="middle" className="fill-slate-500 text-[10px] font-bold">W</text>
       {/* Heading arrow */}
       <g transform={`rotate(${rotation} 60 60)`}>
-        <line x1="60" y1="60" x2="60" y2="22" stroke="currentColor" className="text-gold-400" strokeWidth="3" strokeLinecap="round" />
-        <polygon points="60,18 55,28 65,28" className="fill-gold-400" />
+        <line x1="60" y1="60" x2="60" y2="22" stroke="currentColor" className="text-pink-500" strokeWidth="3" strokeLinecap="round" />
+        <polygon points="60,18 55,28 65,28" className="fill-pink-500" />
       </g>
       {/* Center dot */}
-      <circle cx="60" cy="60" r="3" className="fill-white" />
+      <circle cx="60" cy="60" r="3" className="fill-slate-800" />
     </svg>
   );
 }
@@ -154,12 +154,12 @@ export function DirectionalReasoning() {
       <div className="space-y-4">
         {/* Score */}
         <div className="flex items-center justify-between text-sm">
-          <span className="text-navy-300">
-            Score: <span className="font-semibold text-white">{score.correct}/{score.total}</span>
+          <span className="text-slate-500">
+            Score: <span className="font-semibold text-slate-800">{score.correct}/{score.total}</span>
           </span>
           <button
             onClick={resetSession}
-            className="flex items-center gap-1 text-navy-400 hover:text-white transition-colors"
+            className="flex items-center gap-1 text-slate-500 hover:text-slate-800 transition-colors"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             Reset
@@ -170,12 +170,12 @@ export function DirectionalReasoning() {
         <CompassRose heading={problem.startHeading} />
 
         {/* Problem */}
-        <p className="text-center text-white">
+        <p className="text-center text-slate-800">
           You are flying heading{' '}
-          <span className="font-bold text-gold-400">{headingLabel(problem.startHeading)}</span>.
+          <span className="font-bold text-pink-500">{headingLabel(problem.startHeading)}</span>.
           {' '}Turn{' '}
-          <span className="font-bold text-gold-400">{problem.direction}</span>
-          {' '}<span className="font-bold text-gold-400">{problem.turnAmount}&deg;</span>.
+          <span className="font-bold text-pink-500">{problem.direction}</span>
+          {' '}<span className="font-bold text-pink-500">{problem.turnAmount}&deg;</span>.
           {' '}What is your new heading?
         </p>
 
@@ -184,13 +184,13 @@ export function DirectionalReasoning() {
           {problem.choices.map((choice) => {
             let btnClass = 'rounded-lg border px-4 py-3 text-center font-mono font-semibold transition-colors ';
             if (!answered) {
-              btnClass += 'border-navy-600 bg-navy-800 text-white hover:border-gold-400 hover:bg-navy-700 cursor-pointer';
+              btnClass += 'border-slate-200 bg-white text-slate-800 hover:border-pink-400 hover:bg-slate-50 cursor-pointer';
             } else if (choice === problem.correctAnswer) {
-              btnClass += 'border-green-500 bg-green-900/40 text-green-300';
+              btnClass += 'border-emerald-300 bg-emerald-50 text-emerald-500';
             } else if (choice === selectedAnswer) {
-              btnClass += 'border-red-500 bg-red-900/40 text-red-300';
+              btnClass += 'border-red-300 bg-red-50 text-red-500';
             } else {
-              btnClass += 'border-navy-700 bg-navy-900 text-navy-500';
+              btnClass += 'border-slate-100 bg-slate-50 text-slate-500';
             }
             return (
               <button
@@ -207,11 +207,11 @@ export function DirectionalReasoning() {
 
         {/* Feedback */}
         {answered && (
-          <div className={`rounded-lg p-3 text-sm ${wasCorrect ? 'bg-green-900/30 text-green-300' : 'bg-red-900/30 text-red-300'}`}>
+          <div className={`rounded-lg p-3 text-sm ${wasCorrect ? 'bg-emerald-50 text-emerald-500' : 'bg-red-50 text-red-500'}`}>
             <p className="font-semibold">{wasCorrect ? 'Correct!' : 'Incorrect'}</p>
-            <p className="mt-1 text-navy-300">
+            <p className="mt-1 text-slate-500">
               {explanationParts.join(' \u2192 ')}
-              {' '}&rarr; <span className="font-semibold text-white">{headingLabel(problem.correctAnswer)}</span>
+              {' '}&rarr; <span className="font-semibold text-slate-800">{headingLabel(problem.correctAnswer)}</span>
             </p>
           </div>
         )}
@@ -220,7 +220,7 @@ export function DirectionalReasoning() {
         {answered && (
           <button
             onClick={nextQuestion}
-            className="w-full rounded-lg bg-gold-400 px-4 py-2.5 font-semibold text-navy-900 hover:bg-gold-300 transition-colors"
+            className="w-full rounded-xl bg-pink-400 px-4 py-2.5 font-semibold text-white hover:bg-pink-500 transition-colors"
           >
             Next Question
           </button>

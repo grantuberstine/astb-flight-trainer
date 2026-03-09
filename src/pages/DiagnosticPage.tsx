@@ -150,18 +150,18 @@ export function DiagnosticPage() {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-3">
-          <Crosshair className="h-8 w-8 text-gold-400" />
-          <h1 className="text-3xl font-bold">Diagnostic Assessment</h1>
+          <Crosshair className="h-8 w-8 text-pink-500" />
+          <h1 className="text-3xl font-bold text-slate-800">Diagnostic Assessment</h1>
         </div>
 
-        <div className="rounded-xl bg-navy-800 p-6">
-          <p className="mb-4 text-navy-300">
+        <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <p className="mb-4 text-slate-500">
             Take a 25-question diagnostic covering all 5 ASTB sections (5 questions each).
             Results will identify your strengths and weaknesses to guide your study plan.
           </p>
           <button
             onClick={startDiagnostic}
-            className="rounded-lg bg-gold-500 px-6 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="rounded-xl bg-pink-400 px-6 py-3 font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
           >
             {lastDiagnosticAt ? 'Retake Diagnostic' : 'Start Diagnostic'}
           </button>
@@ -169,9 +169,9 @@ export function DiagnosticPage() {
 
         {lastResult && (
           <div>
-            <h2 className="mb-3 text-lg font-semibold text-white">
+            <h2 className="mb-3 text-lg font-semibold text-slate-800">
               Last Results{' '}
-              <span className="text-sm font-normal text-navy-400">
+              <span className="text-sm font-normal text-slate-500">
                 ({new Date(lastResult.timestamp).toLocaleDateString()})
               </span>
             </h2>
@@ -186,8 +186,8 @@ export function DiagnosticPage() {
   if (status === 'loading') {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-gold-400" />
-        <p className="text-navy-300">Loading diagnostic questions...</p>
+        <Loader2 className="h-8 w-8 animate-spin text-pink-500" />
+        <p className="text-slate-500">Loading diagnostic questions...</p>
       </div>
     );
   }
@@ -197,8 +197,8 @@ export function DiagnosticPage() {
     return (
       <div className="space-y-6">
         <div className="flex items-center gap-3">
-          <Crosshair className="h-8 w-8 text-gold-400" />
-          <h1 className="text-3xl font-bold">Diagnostic Results</h1>
+          <Crosshair className="h-8 w-8 text-pink-500" />
+          <h1 className="text-3xl font-bold text-slate-800">Diagnostic Results</h1>
         </div>
 
         <DiagnosticResults result={result} />
@@ -206,7 +206,7 @@ export function DiagnosticPage() {
         <div className="flex gap-3">
           <button
             onClick={startDiagnostic}
-            className="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="inline-flex items-center gap-2 rounded-xl bg-pink-400 px-6 py-3 font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
           >
             <RotateCcw className="h-4 w-4" />
             Retake
@@ -225,21 +225,21 @@ export function DiagnosticPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-white">Diagnostic Assessment</h2>
-          <p className="text-sm text-navy-300">
+          <h2 className="text-lg font-bold text-slate-800">Diagnostic Assessment</h2>
+          <p className="text-sm text-slate-500">
             Section {currentSectionIdx + 1}/5 &mdash; {sectionName} &mdash; Question{' '}
             {indexInSection + 1}/{questionsInCurrentSection.length}
           </p>
         </div>
-        <span className="rounded bg-navy-700 px-3 py-1 text-sm text-navy-300">
+        <span className="rounded-lg bg-slate-50 px-3 py-1 text-sm text-slate-500">
           {currentIndex + 1}/{diagnosticQuestions.length}
         </span>
       </div>
 
       {/* Progress bar */}
-      <div className="h-2 overflow-hidden rounded-full bg-navy-700">
+      <div className="h-2 overflow-hidden rounded-full bg-slate-100">
         <div
-          className="h-full rounded-full bg-gold-500 transition-all"
+          className="h-full rounded-full bg-pink-400 transition-all"
           style={{
             width: `${((currentIndex + (status === 'showing-explanation' ? 1 : 0)) / diagnosticQuestions.length) * 100}%`,
           }}
@@ -248,7 +248,7 @@ export function DiagnosticPage() {
 
       {/* Question */}
       {currentDQ && (
-        <div className="rounded-xl bg-navy-800 p-6">
+        <div className="rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
           <QuestionCard
             question={currentDQ.question}
             subIndex={0}
@@ -269,7 +269,7 @@ export function DiagnosticPage() {
           />
           <button
             onClick={handleNext}
-            className="w-full rounded-lg bg-gold-500 py-3 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+            className="w-full rounded-xl bg-pink-400 py-3 font-semibold text-white transition-colors hover:bg-pink-500 shadow-sm"
           >
             {currentIndex + 1 >= diagnosticQuestions.length ? 'See Results' : 'Next'}
           </button>

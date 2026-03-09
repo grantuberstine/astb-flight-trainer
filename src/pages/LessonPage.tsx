@@ -31,8 +31,8 @@ export function LessonPage() {
   if (loading || !lesson) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-gold-400" />
-        <p className="text-navy-300">Loading lesson...</p>
+        <Loader2 className="h-8 w-8 animate-spin text-pink-500" />
+        <p className="text-slate-500">Loading lesson...</p>
       </div>
     );
   }
@@ -43,8 +43,8 @@ export function LessonPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <BookOpen className="h-6 w-6 text-gold-400" />
-        <h1 className="text-2xl font-bold">{sectionName} - Study Guide</h1>
+        <BookOpen className="h-6 w-6 text-pink-500" />
+        <h1 className="text-2xl font-bold text-slate-800">{sectionName} - Study Guide</h1>
       </div>
       <LessonViewer
         lesson={lesson}

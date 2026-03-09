@@ -27,10 +27,10 @@ export function TimedTestPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Clock className="h-8 w-8 text-gold-400" />
+        <Clock className="h-8 w-8 text-pink-500" />
         <div>
-          <h1 className="text-3xl font-bold">Timed Tests</h1>
-          <p className="text-sm text-navy-300">
+          <h1 className="text-3xl font-bold text-slate-800">Timed Tests</h1>
+          <p className="text-sm text-slate-500">
             Practice under real ASTB time constraints
           </p>
         </div>
@@ -45,27 +45,27 @@ export function TimedTestPage() {
             <Link
               key={section.id}
               to={`/timed-test/${section.id}`}
-              className="group rounded-lg border border-navy-700 bg-navy-800 p-6 transition-colors hover:border-gold-500/30"
+              className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-colors hover:border-pink-300"
             >
               <div className="mb-3 flex items-center gap-3">
                 <div className={`rounded-md bg-${section.color}/20 p-2`}>
                   <Icon className={`h-6 w-6 text-${section.color}`} />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-navy-300">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     {section.id}
                   </span>
-                  <h3 className="font-bold text-white">{section.name}</h3>
+                  <h3 className="font-bold text-slate-800">{section.name}</h3>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-navy-300">
+              <div className="flex items-center gap-4 text-sm text-slate-500">
                 <div className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5 text-gold-400" />
+                  <Clock className="h-3.5 w-3.5 text-pink-500" />
                   <span>{formatTime(config.timeLimitSec)}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Target className="h-3.5 w-3.5 text-gold-400" />
+                  <Target className="h-3.5 w-3.5 text-pink-500" />
                   <span>{config.questionCount} questions</span>
                 </div>
               </div>

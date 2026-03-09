@@ -12,26 +12,28 @@ const navItems = [
 
 export function Navbar() {
   return (
-    <nav className="bg-navy-800 border-b border-navy-700">
+    <nav className="sticky top-0 z-40 border-b border-slate-200/60 bg-white/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-2">
-          <Plane className="h-6 w-6 text-gold-400" />
-          <span className="hidden text-lg font-bold text-white sm:inline">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-pink-400 to-pink-500 shadow-sm">
+            <Plane className="h-4.5 w-4.5 text-white" />
+          </div>
+          <span className="hidden text-lg font-bold text-slate-800 sm:inline">
             ASTB Flight Trainer
           </span>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5">
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                `flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition-all duration-200 ${
                   isActive
-                    ? 'border-b-2 border-gold-400 text-gold-400'
-                    : 'text-navy-300 hover:text-white'
+                    ? 'bg-pink-50 text-pink-500'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-600'
                 }`
               }
             >

@@ -29,13 +29,13 @@ export function LessonViewer({ lesson, onComplete }: LessonViewerProps) {
   if (flatCards.length === 0) {
     return (
       <div className="py-20 text-center">
-        <p className="text-lg font-medium text-navy-300">
+        <p className="text-lg font-medium text-slate-500">
           No lesson content available yet.
         </p>
-        <p className="mt-1 text-sm text-navy-400">Lessons are coming soon!</p>
+        <p className="mt-1 text-sm text-slate-500">Lessons are coming soon!</p>
         <button
           onClick={onComplete}
-          className="mt-6 rounded-lg bg-gold-500 px-6 py-2.5 font-semibold text-navy-900 hover:bg-gold-400"
+          className="mt-6 rounded-xl bg-pink-400 px-6 py-2.5 font-semibold text-white hover:bg-pink-500"
         >
           Start Practice
         </button>
@@ -49,7 +49,7 @@ export function LessonViewer({ lesson, onComplete }: LessonViewerProps) {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-xs font-semibold uppercase tracking-wider text-navy-400">
+      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
         {current.topicName}
       </p>
 
@@ -68,7 +68,7 @@ export function LessonViewer({ lesson, onComplete }: LessonViewerProps) {
         <button
           onClick={() => setCurrentIndex((i) => i - 1)}
           disabled={isFirst}
-          className="flex flex-1 items-center justify-center gap-1 rounded-lg border border-navy-600 py-2.5 font-medium text-navy-300 transition-colors hover:bg-navy-700 disabled:opacity-30 disabled:hover:bg-transparent"
+          className="flex flex-1 items-center justify-center gap-1 rounded-xl border border-slate-200 py-2.5 font-medium text-slate-500 transition-colors hover:bg-slate-50 disabled:opacity-30 disabled:hover:bg-transparent"
         >
           <ChevronLeft className="h-4 w-4" />
           Previous
@@ -81,7 +81,7 @@ export function LessonViewer({ lesson, onComplete }: LessonViewerProps) {
               setCurrentIndex((i) => i + 1);
             }
           }}
-          className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gold-500 py-2.5 font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+          className="flex flex-1 items-center justify-center gap-1 rounded-xl bg-pink-400 py-2.5 font-semibold text-white transition-colors hover:bg-pink-500"
         >
           {isLast ? 'Start Practice' : 'Next'}
           {!isLast && <ChevronRight className="h-4 w-4" />}

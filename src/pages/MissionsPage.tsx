@@ -27,10 +27,10 @@ export function MissionsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Crosshair className="h-8 w-8 text-gold-400" />
+        <Crosshair className="h-8 w-8 text-pink-500" />
         <div>
-          <h1 className="text-3xl font-bold">Missions</h1>
-          <p className="text-sm text-navy-300">
+          <h1 className="text-3xl font-bold text-slate-800">Missions</h1>
+          <p className="text-sm text-slate-500">
             Structured study paths to master each ASTB section
           </p>
         </div>
@@ -39,7 +39,7 @@ export function MissionsPage() {
       {/* Active Missions */}
       {activeMissions.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-gold-400">
+          <h2 className="mb-3 text-lg font-semibold text-pink-500">
             Active Missions ({activeMissions.length})
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -58,7 +58,7 @@ export function MissionsPage() {
       {/* Available Missions */}
       {availableMissions.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-white">
+          <h2 className="mb-3 text-lg font-semibold text-slate-800">
             Available Missions ({availableMissions.length})
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -77,7 +77,7 @@ export function MissionsPage() {
       {/* Completed Missions */}
       {completedMissions.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-semibold text-green-400">
+          <h2 className="mb-3 text-lg font-semibold text-emerald-500">
             Completed Missions ({completedMissions.length})
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">

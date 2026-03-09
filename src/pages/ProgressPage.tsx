@@ -17,29 +17,29 @@ export function ProgressPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <TrendingUp className="h-8 w-8 text-gold-400" />
-        <h1 className="text-3xl font-bold">Flight Log</h1>
+        <TrendingUp className="h-8 w-8 text-pink-500" />
+        <h1 className="text-3xl font-bold text-slate-800">Flight Log</h1>
       </div>
 
       {/* Overall stats */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="rounded-lg bg-navy-800 p-4 text-center">
-          <p className="text-2xl font-bold text-white">{totalAnswered}</p>
-          <p className="text-xs text-navy-400">Questions Answered</p>
+        <div className="rounded-2xl bg-white p-4 text-center shadow-sm border border-slate-100">
+          <p className="text-2xl font-bold text-slate-800">{totalAnswered}</p>
+          <p className="text-xs text-slate-500">Questions Answered</p>
         </div>
-        <div className="rounded-lg bg-navy-800 p-4 text-center">
-          <p className="text-2xl font-bold text-white">{overallPct}%</p>
-          <p className="text-xs text-navy-400">Overall Accuracy</p>
+        <div className="rounded-2xl bg-white p-4 text-center shadow-sm border border-slate-100">
+          <p className="text-2xl font-bold text-slate-800">{overallPct}%</p>
+          <p className="text-xs text-slate-500">Overall Accuracy</p>
         </div>
-        <div className="rounded-lg bg-navy-800 p-4 text-center">
-          <p className="text-2xl font-bold text-white">{totalMinutes}</p>
-          <p className="text-xs text-navy-400">Minutes Studied</p>
+        <div className="rounded-2xl bg-white p-4 text-center shadow-sm border border-slate-100">
+          <p className="text-2xl font-bold text-slate-800">{totalMinutes}</p>
+          <p className="text-xs text-slate-500">Minutes Studied</p>
         </div>
       </div>
 
       {/* Section breakdown */}
       <div>
-        <h2 className="mb-3 text-lg font-semibold text-white">Section Breakdown</h2>
+        <h2 className="mb-3 text-lg font-semibold text-slate-800">Section Breakdown</h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {ASTB_SECTIONS.map((section) => (
             <SectionScoreCard
@@ -53,7 +53,7 @@ export function ProgressPage() {
 
       <Link
         to="/"
-        className="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-4 py-2.5 font-semibold text-navy-900 hover:bg-gold-400"
+        className="inline-flex items-center gap-2 rounded-xl bg-pink-400 px-4 py-2.5 font-semibold text-white hover:bg-pink-500 shadow-sm"
       >
         View Dashboard
       </Link>

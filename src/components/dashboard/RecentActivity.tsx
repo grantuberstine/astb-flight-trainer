@@ -20,14 +20,14 @@ export function RecentActivity({ history }: RecentActivityProps) {
   const recent = history.slice(-10).reverse();
 
   return (
-    <div className="rounded-lg bg-navy-800 p-4">
+    <div className="rounded-2xl bg-white p-4 shadow-sm border border-slate-100">
       <div className="flex items-center gap-2">
-        <Clock className="h-5 w-5 text-gold-400" />
-        <h3 className="font-bold text-white">Recent Activity</h3>
+        <Clock className="h-5 w-5 text-pink-400" />
+        <h3 className="font-bold text-slate-800">Recent Activity</h3>
       </div>
 
       {recent.length === 0 ? (
-        <p className="mt-4 text-center text-sm text-navy-400">
+        <p className="mt-4 text-center text-sm text-slate-500">
           No activity yet -- start practicing!
         </p>
       ) : (
@@ -37,18 +37,18 @@ export function RecentActivity({ history }: RecentActivityProps) {
               key={`${record.questionId}-${i}`}
               className="flex items-center gap-2 text-sm"
             >
-              <span className="w-10 shrink-0 rounded bg-navy-700 px-1.5 py-0.5 text-center text-xs font-medium text-navy-300">
+              <span className="w-10 shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-center text-xs font-medium text-slate-500">
                 {record.section}
               </span>
-              <span className="min-w-0 flex-1 truncate text-navy-300">
+              <span className="min-w-0 flex-1 truncate text-slate-500">
                 {record.questionId}
               </span>
               {record.correct ? (
-                <CheckCircle className="h-4 w-4 shrink-0 text-success" />
+                <CheckCircle className="h-4 w-4 shrink-0 text-emerald-500" />
               ) : (
-                <XCircle className="h-4 w-4 shrink-0 text-danger" />
+                <XCircle className="h-4 w-4 shrink-0 text-red-500" />
               )}
-              <span className="shrink-0 text-xs text-navy-500">
+              <span className="shrink-0 text-xs text-slate-500">
                 {timeAgo(record.timestamp)}
               </span>
             </li>

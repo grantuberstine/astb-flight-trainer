@@ -175,12 +175,12 @@ export function DividedAttention() {
       <div className="space-y-4">
         {/* Status bar */}
         <div className="flex items-center justify-between text-sm">
-          <span className="text-navy-300">
-            Score: <span className="font-semibold text-white">{score}</span>
+          <span className="text-slate-500">
+            Score: <span className="font-semibold text-slate-800">{score}</span>
           </span>
-          <span className="font-mono text-navy-300">
+          <span className="font-mono text-slate-500">
             {isRunning ? (
-              <span className={timeLeft <= 5 ? 'text-red-400' : 'text-white'}>
+              <span className={timeLeft <= 5 ? 'text-red-500' : 'text-slate-800'}>
                 {timeLeft}s
               </span>
             ) : (
@@ -192,36 +192,36 @@ export function DividedAttention() {
         {/* Dual panels */}
         <div className="grid grid-cols-2 gap-3">
           {/* Altitude panel */}
-          <div className="rounded-lg border border-navy-700 bg-navy-900 p-3">
-            <p className="mb-1 text-xs font-medium text-navy-400">ALTITUDE</p>
-            <p className="text-xs text-navy-500 mb-2">Safe: {ALTITUDE_SAFE_LOW}-{ALTITUDE_SAFE_HIGH} ft</p>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+            <p className="mb-1 text-xs font-medium text-slate-500">ALTITUDE</p>
+            <p className="text-xs text-slate-500 mb-2">Safe: {ALTITUDE_SAFE_LOW}-{ALTITUDE_SAFE_HIGH} ft</p>
             <p className={`text-center font-mono text-2xl font-bold ${
-              isRunning && altOutOfRange ? 'text-red-400' : 'text-white'
+              isRunning && altOutOfRange ? 'text-red-500' : 'text-slate-800'
             }`}>
               {altitude.toLocaleString()} ft
             </p>
             <button
               onClick={handleCorrectAltitude}
               disabled={!isRunning}
-              className="mt-3 w-full rounded-md bg-navy-700 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-600 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-3 w-full rounded-md bg-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-300 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Correct
             </button>
           </div>
 
           {/* Heading panel */}
-          <div className="rounded-lg border border-navy-700 bg-navy-900 p-3">
-            <p className="mb-1 text-xs font-medium text-navy-400">HEADING</p>
-            <p className="text-xs text-navy-500 mb-2">Target: {targetHeading}&deg; (&plusmn;{HEADING_TOLERANCE}&deg;)</p>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+            <p className="mb-1 text-xs font-medium text-slate-500">HEADING</p>
+            <p className="text-xs text-slate-500 mb-2">Target: {targetHeading}&deg; (&plusmn;{HEADING_TOLERANCE}&deg;)</p>
             <p className={`text-center font-mono text-2xl font-bold ${
-              isRunning && hdgOutOfRange ? 'text-red-400' : 'text-white'
+              isRunning && hdgOutOfRange ? 'text-red-500' : 'text-slate-800'
             }`}>
               {heading}&deg;
             </p>
             <button
               onClick={handleCorrectHeading}
               disabled={!isRunning}
-              className="mt-3 w-full rounded-md bg-navy-700 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-600 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-3 w-full rounded-md bg-slate-200 px-3 py-2 text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-300 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Correct
             </button>
@@ -232,7 +232,7 @@ export function DividedAttention() {
         {!isRunning && !roundResult && (
           <button
             onClick={startRound}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-400 px-4 py-2.5 font-semibold text-navy-900 hover:bg-gold-300 transition-colors"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 px-4 py-2.5 font-semibold text-white hover:bg-pink-500 transition-colors"
           >
             <Play className="h-4 w-4" />
             Start Round
@@ -242,29 +242,29 @@ export function DividedAttention() {
         {/* Round result */}
         {roundResult && (
           <div className="space-y-3">
-            <div className="rounded-lg bg-navy-800 p-4">
-              <p className="mb-2 font-semibold text-white">Round Complete</p>
+            <div className="rounded-lg bg-white border border-slate-100 shadow-sm p-4">
+              <p className="mb-2 font-semibold text-slate-800">Round Complete</p>
               <div className="grid grid-cols-3 gap-2 text-center text-sm">
                 <div>
-                  <p className="text-green-400 font-bold text-lg">{roundResult.detections}</p>
-                  <p className="text-navy-400">Detections</p>
+                  <p className="text-emerald-500 font-bold text-lg">{roundResult.detections}</p>
+                  <p className="text-slate-500">Detections</p>
                 </div>
                 <div>
-                  <p className="text-red-400 font-bold text-lg">{roundResult.falseAlarms}</p>
-                  <p className="text-navy-400">False Alarms</p>
+                  <p className="text-red-500 font-bold text-lg">{roundResult.falseAlarms}</p>
+                  <p className="text-slate-500">False Alarms</p>
                 </div>
                 <div>
                   <p className="text-yellow-400 font-bold text-lg">{roundResult.misses}</p>
-                  <p className="text-navy-400">Misses</p>
+                  <p className="text-slate-500">Misses</p>
                 </div>
               </div>
-              <p className="mt-2 text-center text-sm text-navy-300">
-                Final score: <span className="font-bold text-white">{roundResult.score}</span>
+              <p className="mt-2 text-center text-sm text-slate-500">
+                Final score: <span className="font-bold text-slate-800">{roundResult.score}</span>
               </p>
             </div>
             <button
               onClick={startRound}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold-400 px-4 py-2.5 font-semibold text-navy-900 hover:bg-gold-300 transition-colors"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-400 px-4 py-2.5 font-semibold text-white hover:bg-pink-500 transition-colors"
             >
               <RotateCcw className="h-4 w-4" />
               Try Again

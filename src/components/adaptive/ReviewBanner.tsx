@@ -8,18 +8,18 @@ export function ReviewBanner() {
   if (!hasDueCards) return null;
 
   return (
-    <div className="flex items-center justify-between rounded-xl border border-gold-400/30 bg-navy-800 px-4 py-3">
+    <div className="flex items-center justify-between rounded-xl border border-pink-200 bg-white shadow-sm px-4 py-3">
       <div className="flex items-center gap-3">
-        <RefreshCw className="h-5 w-5 text-gold-400" />
-        <p className="text-sm font-medium text-white">
+        <RefreshCw className="h-5 w-5 text-pink-500" />
+        <p className="text-sm font-medium text-slate-800">
           You have{' '}
-          <span className="font-bold text-gold-400">{dueCount}</span>{' '}
+          <span className="font-bold text-pink-500">{dueCount}</span>{' '}
           {dueCount === 1 ? 'question' : 'questions'} to review
         </p>
       </div>
       <Link
         to="/practice"
-        className="rounded-lg bg-gold-500 px-4 py-1.5 text-sm font-semibold text-navy-900 transition-colors hover:bg-gold-400"
+        className="rounded-xl bg-pink-400 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-pink-500"
       >
         Review Now
       </Link>

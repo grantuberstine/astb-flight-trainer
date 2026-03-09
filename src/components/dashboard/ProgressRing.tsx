@@ -10,7 +10,7 @@ export function ProgressRing({
   percentage,
   size = 80,
   strokeWidth = 6,
-  color = 'text-gold-400',
+  color = 'text-pink-400',
   label,
 }: ProgressRingProps) {
   const radius = (size - strokeWidth) / 2;
@@ -29,7 +29,7 @@ export function ProgressRing({
           fill="none"
           stroke="currentColor"
           strokeWidth={strokeWidth}
-          className="text-navy-700"
+          className="text-slate-100"
         />
         {/* Progress ring */}
         <circle
@@ -46,7 +46,7 @@ export function ProgressRing({
         />
       </svg>
       {label && (
-        <span className="absolute text-sm font-bold text-white">
+        <span className="absolute text-sm font-bold text-slate-800">
           {label}
         </span>
       )}

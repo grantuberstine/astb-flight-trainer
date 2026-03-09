@@ -10,11 +10,11 @@ export function ProgressDots({ total, answers }: ProgressDotsProps) {
         const answer = answers[i];
         let classes = 'h-3 w-3 rounded-full transition-colors';
         if (!answer) {
-          classes += ' border-2 border-navy-500 bg-transparent';
+          classes += ' border-2 border-slate-200 bg-transparent';
         } else if (answer.correct) {
-          classes += ' bg-green-500';
+          classes += ' bg-emerald-400';
         } else {
-          classes += ' bg-red-500';
+          classes += ' bg-red-400';
         }
         return <div key={i} className={classes} />;
       })}
