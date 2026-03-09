@@ -14,8 +14,8 @@ export function YayLizard({ show }: YayLizardProps) {
       setAnimating(true);
       const timer = setTimeout(() => {
         setAnimating(false);
-        setTimeout(() => setVisible(false), 300);
-      }, 1800);
+        setTimeout(() => setVisible(false), 250);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [show]);

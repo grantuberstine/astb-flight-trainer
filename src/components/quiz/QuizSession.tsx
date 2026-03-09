@@ -203,7 +203,7 @@ export function QuizSession({
           setTimeout(() => setXpNotification((prev) => ({ ...prev, visible: false })), 1500);
           lizardKeyRef.current += 1;
           setShowLizard(true);
-          setTimeout(() => setShowLizard(false), 2200);
+          setTimeout(() => setShowLizard(false), 1400);
         }
       }
     },
