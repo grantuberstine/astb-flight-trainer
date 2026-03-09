@@ -59,13 +59,6 @@ export function DividedAttention() {
 
   useEffect(() => cleanup, [cleanup]);
 
-  const endRound = useCallback(() => {
-    cleanup();
-    setIsRunning(false);
-    const s = statsRef.current;
-    setRoundResult({ detections: s.detections, falseAlarms: s.falseAlarms, misses: s.misses, score: s.score });
-  }, [cleanup]);
-
   const startRound = useCallback(() => {
     cleanup();
 
