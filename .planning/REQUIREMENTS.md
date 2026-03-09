@@ -30,7 +30,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Gamification
 
-- [ ] **GAME-01**: Aviation-themed cockpit dashboard UI throughout the app
+- [x] **GAME-01**: Aviation-themed cockpit dashboard UI throughout the app
 - [x] **GAME-02**: XP system — earn points for completing questions, missions, and daily goals
 - [x] **GAME-03**: Daily streak tracker with streak freeze
 - [x] **GAME-04**: Rank progression from Cadet → Ensign → Lieutenant → Commander → Pilot
@@ -93,7 +93,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRAC-06 | Phase 4 | Pending |
 | PRAC-07 | Phase 2 | Complete |
 | PRAC-08 | Phase 4 | Pending |
-| GAME-01 | Phase 3 | Pending |
+| GAME-01 | Phase 3 | Complete |
 | GAME-02 | Phase 3 | Complete |
 | GAME-03 | Phase 3 | Complete |
 | GAME-04 | Phase 3 | Complete |
