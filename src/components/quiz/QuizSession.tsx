@@ -203,8 +203,34 @@ export function QuizSession({
           setTimeout(() => setXpNotification((prev) => ({ ...prev, visible: false })), 1500);
           lizardKeyRef.current += 1;
           setShowLizard(true);
-          setTimeout(() => setShowLizard(false), 1400);
+          setTimeout(() => setShowLizard(false), 2100);
         }
+
+        // Evaluate badges after every answer (not just session end)
+        setTimeout(() => {
+          const gamState = useGamificationStore.getState();
+          const progState = useProgressStore.getState();
+          const sectionsAttempted = new Set(progState.questionHistory.map((r) => r.section));
+          const ctx = {
+            xp: gamState.xp,
+            currentStreak: gamState.currentStreak,
+            longestStreak: gamState.longestStreak,
+            sectionScores: progState.sectionScores,
+            totalQuestionsAnswered: progState.questionHistory.length,
+            sectionsAttempted,
+            hasPerfectSession: false,
+            usedStreakFreeze: gamState.streakFreezesUsed > 0,
+            fastCorrectCount: 0,
+            timedTestBestScore: 0,
+            personalBestBeaten: false,
+            badges: gamState.badges,
+          };
+          const earned = evaluateNewBadges(ctx);
+          if (earned.length > 0) {
+            earnBadges(earned);
+            setNewBadgeIds((prev) => [...prev, ...earned]);
+          }
+        }, 50);
       }
     },
     [state.status, state.subQuestionIndex, state.questionStartedAt, currentQuestion, dispatch, recordAnswer, sectionId, addXP],
