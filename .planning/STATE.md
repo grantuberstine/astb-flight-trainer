@@ -92,6 +92,10 @@ Recent decisions affecting current work:
 - [Phase 03]: XP notification uses CSS transition with pointer-events-none overlay
 - [Phase 03]: Challenge mode uses 120s time limit (tighter than real ASTB) via timeLimitSecOverride prop
 - [Phase 03]: Missions defined as typed const array in src/data/missions.ts with objectives
+- [Phase 04]: SM-2 ease factor min 1.3 with 0.2 decrement on failure per standard algorithm
+- [Phase 04]: MAX_ACTIVE_CARDS=30 cap with longest-interval eviction to prevent SR queue explosion
+- [Phase 04]: scoreDiagnostic takes tagLookup parameter to keep function pure (no async)
+- [Phase 04]: Study plan caps at 12 weeks with 15 questions/day final-week review mode
 - [Phase 04]: PBM exercises use local component state only (no Zustand persistence) -- practice-oriented
 - [Phase 04]: SVG compass rose for heading visualization in directional reasoning
 - [Phase 04]: Dashboard Training Tools section for non-quiz features like PBM trainer

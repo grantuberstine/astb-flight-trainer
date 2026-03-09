@@ -82,7 +82,7 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md -- Adaptive data layer: types, SM-2 spaced repetition, weighted selection, diagnostic scoring, study plan generation, adaptive store
+- [x] 04-01-PLAN.md -- Adaptive data layer: types, SM-2 spaced repetition, weighted selection, diagnostic scoring, study plan generation, adaptive store
 - [ ] 04-02-PLAN.md -- Diagnostic assessment page, study plan page, adaptive quiz integration, review queue UI
 - [ ] 04-03-PLAN.md -- PBM concept trainer with directional reasoning and divided attention exercises
 
@@ -96,4 +96,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. App Shell and Data Layer | 2/2 | Complete    | 2026-03-08 |
 | 2. Quiz Engine and Content | 0/4 | Not started | - |
 | 3. Gamification and Dashboard | 3/3 | Complete   | 2026-03-09 |
-| 4. Adaptive Learning and Study Intelligence | 0/3 | Not started | - |
+| 4. Adaptive Learning and Study Intelligence | 1/3 | In progress | - |

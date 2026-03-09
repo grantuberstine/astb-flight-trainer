@@ -21,10 +21,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **PRAC-01**: User can practice any section independently
 - [x] **PRAC-02**: User can take timed practice tests simulating real ASTB time pressure
-- [ ] **PRAC-03**: App runs a diagnostic assessment to identify weak areas across all sections
-- [ ] **PRAC-04**: App adapts study recommendations based on performance (prioritize weak areas)
-- [ ] **PRAC-05**: Missed questions resurface via spaced repetition
-- [ ] **PRAC-06**: User can set test date and get a paced study plan
+- [x] **PRAC-03**: App runs a diagnostic assessment to identify weak areas across all sections
+- [x] **PRAC-04**: App adapts study recommendations based on performance (prioritize weak areas)
+- [x] **PRAC-05**: Missed questions resurface via spaced repetition
+- [x] **PRAC-06**: User can set test date and get a paced study plan
 - [x] **PRAC-07**: User can take full practice test (all sections back-to-back)
 - [x] **PRAC-08**: PBM concept trainer with directional reasoning and multitasking exercises
 
@@ -87,10 +87,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-07 | Phase 2 | Complete |
 | PRAC-01 | Phase 2 | Complete |
 | PRAC-02 | Phase 2 | Complete |
-| PRAC-03 | Phase 4 | Pending |
-| PRAC-04 | Phase 4 | Pending |
-| PRAC-05 | Phase 4 | Pending |
-| PRAC-06 | Phase 4 | Pending |
+| PRAC-03 | Phase 4 | Complete |
+| PRAC-04 | Phase 4 | Complete |
+| PRAC-05 | Phase 4 | Complete |
+| PRAC-06 | Phase 4 | Complete |
 | PRAC-07 | Phase 2 | Complete |
 | PRAC-08 | Phase 4 | Complete |
 | GAME-01 | Phase 3 | Complete |
