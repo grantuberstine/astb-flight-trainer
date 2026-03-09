@@ -62,11 +62,12 @@ Plans:
   3. User progresses through ranks (Cadet to Pilot) based on mastery and XP milestones
   4. Daily streak tracker shows current streak with streak freeze option, motivating consecutive-day study
   5. User can browse and earn 15-25 achievement badges for milestones like section mastery, streaks, and speed records
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 03-01: Cockpit dashboard UI, XP engine, ranks, streaks, badges
-- [ ] 03-02: Mission structure and timed challenge mode
+- [ ] 03-01-PLAN.md -- Gamification engine: types, XP utility, badge engine with 20 definitions, store extensions
+- [ ] 03-02-PLAN.md -- Cockpit dashboard UI, badge/streak/rank display, XP integration into quiz flow
+- [ ] 03-03-PLAN.md -- Mission system (7 missions) and timed challenge mode with personal best tracking
 
 ### Phase 4: Adaptive Learning and Study Intelligence
 **Goal**: App intelligently guides the user's study by identifying weaknesses, adapting question selection, and pacing preparation toward test day
@@ -93,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. App Shell and Data Layer | 2/2 | Complete    | 2026-03-08 |
 | 2. Quiz Engine and Content | 0/4 | Not started | - |
-| 3. Gamification and Dashboard | 0/2 | Not started | - |
+| 3. Gamification and Dashboard | 0/3 | Not started | - |
 | 4. Adaptive Learning and Study Intelligence | 0/2 | Not started | - |
