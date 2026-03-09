@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router';
-import { Plane, LayoutDashboard, Target, TrendingUp, Settings } from 'lucide-react';
+import { Plane, LayoutDashboard, Target, Crosshair, Timer, TrendingUp, Settings } from 'lucide-react';
 
 const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/practice', label: 'Practice', icon: Target },
+  { to: '/missions', label: 'Missions', icon: Crosshair },
+  { to: '/challenge', label: 'Challenges', icon: Timer },
   { to: '/progress', label: 'Progress', icon: TrendingUp },
   { to: '/settings', label: 'Settings', icon: Settings },
 ];

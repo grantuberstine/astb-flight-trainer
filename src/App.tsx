@@ -9,6 +9,8 @@ import { QuizPage } from './pages/QuizPage';
 import { LessonPage } from './pages/LessonPage';
 import { TimedTestPage } from './pages/TimedTestPage';
 import { FullTestPage } from './pages/FullTestPage';
+import { MissionsPage } from './pages/MissionsPage';
+import { ChallengePage } from './pages/ChallengePage';
 
 const router = createHashRouter([
   {
@@ -22,6 +24,8 @@ const router = createHashRouter([
       { path: 'timed-test', element: <TimedTestPage /> },
       { path: 'timed-test/:sectionId', element: <QuizPage /> },
       { path: 'full-test', element: <FullTestPage /> },
+      { path: 'missions', element: <MissionsPage /> },
+      { path: 'challenge', element: <ChallengePage /> },
       { path: 'progress', element: <ProgressPage /> },
       { path: 'settings', element: <SettingsPage /> },
     ],

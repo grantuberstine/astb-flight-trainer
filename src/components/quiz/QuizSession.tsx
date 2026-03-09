@@ -18,6 +18,7 @@ interface QuizSessionProps {
   sectionId: SectionId;
   mode: 'practice' | 'timed' | 'full-test';
   questionCount?: number;
+  timeLimitSecOverride?: number;
   onComplete?: (answers: Array<{ questionId: string; selected: number; correct: boolean; timeMs: number }>) => void;
 }
 
@@ -25,6 +26,7 @@ export function QuizSession({
   sectionId,
   mode,
   questionCount,
+  timeLimitSecOverride,
   onComplete,
 }: QuizSessionProps) {
   const navigate = useNavigate();
@@ -35,7 +37,7 @@ export function QuizSession({
 
   const isTimed = mode === 'timed';
   const timedConfig = TIMED_TEST_CONFIG[sectionId];
-  const timeLimitSec = isTimed ? timedConfig.timeLimitSec : 0;
+  const timeLimitSec = isTimed ? (timeLimitSecOverride ?? timedConfig.timeLimitSec) : 0;
   const count = questionCount ?? (isTimed ? timedConfig.questionCount : 10);
 
   const { remaining, isPaused, isExpired, pause, resume, reset } =
