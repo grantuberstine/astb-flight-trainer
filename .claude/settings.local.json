@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(gsd:execute-phase)",
+      "Skill(gsd:execute-phase:*)"
+    ]
+  }
+}
