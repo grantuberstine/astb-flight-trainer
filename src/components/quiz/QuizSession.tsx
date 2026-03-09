@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Zap } from 'lucide-react';
 import type { SectionId } from '../../types/question';
 import { useQuizSession } from '../../hooks/useQuizSession';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useProgressStore } from '../../stores/progress-store';
 import { useGamificationStore } from '../../stores/gamification-store';
+import { useAdaptiveStore } from '../../stores/adaptive-store';
+import { useAdaptiveQuiz } from '../../hooks/useAdaptiveQuiz';
 import { getQuestions } from '../../data/questions';
 import { ASTB_SECTIONS, TIMED_TEST_CONFIG, XP_VALUES } from '../../lib/constants';
 import { evaluateNewBadges } from '../../lib/badges';
@@ -35,6 +37,8 @@ export function QuizSession({
   const navigate = useNavigate();
   const { state, dispatch, currentQuestion, progress } = useQuizSession();
   const recordAnswer = useProgressStore((s) => s.recordAnswer);
+  const adaptiveMode = useAdaptiveStore((s) => s.adaptiveMode);
+  const { loadAdaptiveQuestions, onQuizComplete } = useAdaptiveQuiz();
   const [showQuitDialog, setShowQuitDialog] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>(undefined);
 
@@ -70,7 +74,10 @@ export function QuizSession({
   useEffect(() => {
     if (state.status !== 'loading') return;
     let cancelled = false;
-    getQuestions(sectionId, count).then((questions) => {
+    const loader = adaptiveMode
+      ? loadAdaptiveQuestions(sectionId, count)
+      : getQuestions(sectionId, count);
+    loader.then((questions) => {
       if (!cancelled) {
         dispatch({ type: 'QUESTIONS_LOADED', questions });
         if (isTimed) {
@@ -83,7 +90,7 @@ export function QuizSession({
     return () => {
       cancelled = true;
     };
-  }, [state.status, sectionId, count, dispatch, isTimed, timeLimitSec, reset, resume]);
+  }, [state.status, sectionId, count, dispatch, isTimed, timeLimitSec, reset, resume, adaptiveMode, loadAdaptiveQuestions]);
 
   // Pause timer during explanation, resume during answering
   useEffect(() => {
@@ -114,6 +121,11 @@ export function QuizSession({
     if (state.status !== 'complete' || sessionCompleteHandled.current) return;
     if (state.answers.length === 0) return;
     sessionCompleteHandled.current = true;
+
+    // Create SR cards for incorrect answers (adaptive learning)
+    if (state.sectionId) {
+      onQuizComplete(state.answers, state.sectionId);
+    }
 
     // Update streak
     updateStreak();
@@ -157,7 +169,7 @@ export function QuizSession({
       earnBadges(earned);
       setNewBadgeIds(earned);
     }
-  }, [state.status, state.answers, updateStreak, addXP, earnBadges]);
+  }, [state.status, state.answers, state.sectionId, updateStreak, addXP, earnBadges, onQuizComplete]);
 
   const handleAnswer = useCallback(
     (selected: number) => {
@@ -260,7 +272,15 @@ export function QuizSession({
 
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-white">{sectionName}</h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-lg font-bold text-white">{sectionName}</h2>
+          {adaptiveMode && (
+            <span className="flex items-center gap-1 rounded bg-gold-500/20 px-2 py-0.5 text-xs font-medium text-gold-400">
+              <Zap className="h-3 w-3" />
+              Adaptive
+            </span>
+          )}
+        </div>
         <button
           onClick={() => setShowQuitDialog(true)}
           className="rounded-lg border border-navy-600 px-3 py-1.5 text-sm text-navy-300 hover:bg-navy-700"

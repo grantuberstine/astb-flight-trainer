@@ -12,6 +12,8 @@ import { FullTestPage } from './pages/FullTestPage';
 import { MissionsPage } from './pages/MissionsPage';
 import { ChallengePage } from './pages/ChallengePage';
 import { PBMTrainerPage } from './pages/PBMTrainerPage';
+import { DiagnosticPage } from './pages/DiagnosticPage';
+import { StudyPlanPage } from './pages/StudyPlanPage';
 
 const router = createHashRouter([
   {
@@ -28,6 +30,8 @@ const router = createHashRouter([
       { path: 'missions', element: <MissionsPage /> },
       { path: 'challenge', element: <ChallengePage /> },
       { path: 'pbm-trainer', element: <PBMTrainerPage /> },
+      { path: 'diagnostic', element: <DiagnosticPage /> },
+      { path: 'study-plan', element: <StudyPlanPage /> },
       { path: 'progress', element: <ProgressPage /> },
       { path: 'settings', element: <SettingsPage /> },
     ],

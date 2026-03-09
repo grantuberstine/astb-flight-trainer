@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
-import { Settings, Download, Upload, Trash2, Info } from 'lucide-react';
+import { Settings, Download, Upload, Trash2, Info, Zap } from 'lucide-react';
 import { exportAllData, importAllData, resetAllData } from '../lib/export-import';
+import { useAdaptiveStore } from '../stores/adaptive-store';
 
 export function SettingsPage() {
   const [importStatus, setImportStatus] = useState<{
@@ -8,6 +9,11 @@ export function SettingsPage() {
     message: string;
   } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const adaptiveMode = useAdaptiveStore((s) => s.adaptiveMode);
+  const setAdaptiveMode = useAdaptiveStore((s) => s.setAdaptiveMode);
+  const resetAdaptive = useAdaptiveStore((s) => s.resetAdaptive);
+  const lastDiagnosticAt = useAdaptiveStore((s) => s.lastDiagnosticAt);
 
   async function handleExport() {
     try {
@@ -114,6 +120,68 @@ export function SettingsPage() {
               {importStatus.message}
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Adaptive Learning */}
+      <div className="rounded-lg bg-navy-800 p-6">
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold">
+          <Zap className="h-5 w-5 text-gold-400" />
+          Adaptive Learning
+        </h2>
+
+        <div className="space-y-4">
+          {/* Adaptive mode toggle */}
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-white">Adaptive Mode</p>
+              <p className="text-xs text-navy-400">
+                Prioritizes weak areas and review cards in practice sessions
+              </p>
+            </div>
+            <button
+              onClick={() => setAdaptiveMode(!adaptiveMode)}
+              className={`relative h-6 w-11 rounded-full transition-colors ${
+                adaptiveMode ? 'bg-gold-500' : 'bg-navy-600'
+              }`}
+              aria-label={adaptiveMode ? 'Disable adaptive mode' : 'Enable adaptive mode'}
+            >
+              <span
+                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
+                  adaptiveMode ? 'translate-x-5' : 'translate-x-0'
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* Last diagnostic date */}
+          {lastDiagnosticAt && (
+            <div className="text-sm text-navy-300">
+              Last diagnostic:{' '}
+              <span className="text-white">
+                {new Date(lastDiagnosticAt).toLocaleDateString()}
+              </span>
+            </div>
+          )}
+
+          {/* Reset adaptive data */}
+          <div className="border-t border-navy-700 pt-4">
+            <p className="mb-2 text-sm text-navy-300">
+              Clear all spaced repetition cards, diagnostic results, and study plan data.
+            </p>
+            <button
+              onClick={() => {
+                const confirmed = window.confirm(
+                  'Reset all adaptive learning data? This will clear SR cards, diagnostics, and your study plan.'
+                );
+                if (confirmed) resetAdaptive();
+              }}
+              className="inline-flex items-center gap-2 rounded-md border border-warning px-4 py-2 text-sm font-medium text-warning transition-colors hover:bg-warning/10"
+            >
+              <Trash2 className="h-4 w-4" />
+              Reset Adaptive Data
+            </button>
+          </div>
         </div>
       </div>
 
