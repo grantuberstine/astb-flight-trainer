@@ -1,18 +1,21 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { Loader2 } from 'lucide-react';
 import type { SectionId } from '../../types/question';
 import { useQuizSession } from '../../hooks/useQuizSession';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useProgressStore } from '../../stores/progress-store';
+import { useGamificationStore } from '../../stores/gamification-store';
 import { getQuestions } from '../../data/questions';
-import { ASTB_SECTIONS, TIMED_TEST_CONFIG } from '../../lib/constants';
+import { ASTB_SECTIONS, TIMED_TEST_CONFIG, XP_VALUES } from '../../lib/constants';
+import { evaluateNewBadges } from '../../lib/badges';
 import { ProgressDots } from './ProgressDots';
 import { QuestionCard } from './QuestionCard';
 import { ExplanationPanel } from './ExplanationPanel';
 import { TimerBar } from './TimerBar';
 import { QuitDialog } from './QuitDialog';
 import { SessionSummary } from './SessionSummary';
+import { XPNotification } from '../gamification/XPNotification';
 
 interface QuizSessionProps {
   sectionId: SectionId;
@@ -35,6 +38,15 @@ export function QuizSession({
   const [showQuitDialog, setShowQuitDialog] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>(undefined);
 
+  // Gamification state
+  const addXP = useGamificationStore((s) => s.addXP);
+  const updateStreak = useGamificationStore((s) => s.updateStreak);
+  const earnBadges = useGamificationStore((s) => s.earnBadges);
+  const [xpNotification, setXpNotification] = useState({ amount: 0, visible: false });
+  const [sessionXP, setSessionXP] = useState(0);
+  const [newBadgeIds, setNewBadgeIds] = useState<string[]>([]);
+  const sessionCompleteHandled = useRef(false);
+
   const isTimed = mode === 'timed';
   const timedConfig = TIMED_TEST_CONFIG[sectionId];
   const timeLimitSec = isTimed ? (timeLimitSecOverride ?? timedConfig.timeLimitSec) : 0;
@@ -48,6 +60,9 @@ export function QuizSession({
 
   // Start quiz on mount
   useEffect(() => {
+    sessionCompleteHandled.current = false;
+    setSessionXP(0);
+    setNewBadgeIds([]);
     dispatch({ type: 'START', sectionId, count, timed: isTimed, timeLimitSec });
   }, [dispatch, sectionId, count, isTimed, timeLimitSec]);
 
@@ -94,6 +109,56 @@ export function QuizSession({
     }
   }, [state.status, state.answers, onComplete]);
 
+  // Handle session completion: streak, perfect bonus, badge evaluation
+  useEffect(() => {
+    if (state.status !== 'complete' || sessionCompleteHandled.current) return;
+    if (state.answers.length === 0) return;
+    sessionCompleteHandled.current = true;
+
+    // Update streak
+    updateStreak();
+
+    // Check for perfect session
+    const allCorrect = state.answers.every((a) => a.correct);
+    let bonusXP = 0;
+    if (allCorrect) {
+      bonusXP = XP_VALUES.perfectSection;
+      addXP(bonusXP);
+    }
+    setSessionXP((prev) => prev + bonusXP);
+
+    // Build badge context and evaluate
+    const gamState = useGamificationStore.getState();
+    const progState = useProgressStore.getState();
+    const sectionsAttempted = new Set(progState.questionHistory.map((r) => r.section));
+
+    // Count fast correct answers in this session (< 12s)
+    const fastCorrectCount = state.answers.filter(
+      (a) => a.correct && a.timeMs < 12000,
+    ).length;
+
+    const context = {
+      xp: gamState.xp,
+      currentStreak: gamState.currentStreak,
+      longestStreak: gamState.longestStreak,
+      sectionScores: progState.sectionScores,
+      totalQuestionsAnswered: progState.questionHistory.length,
+      sectionsAttempted,
+      hasPerfectSession: allCorrect,
+      usedStreakFreeze: gamState.streakFreezesUsed > 0,
+      fastCorrectCount,
+      timedTestBestScore: 0,
+      personalBestBeaten: false,
+      badges: gamState.badges,
+    };
+
+    const earned = evaluateNewBadges(context);
+    if (earned.length > 0) {
+      earnBadges(earned);
+      setNewBadgeIds(earned);
+    }
+  }, [state.status, state.answers, updateStreak, addXP, earnBadges]);
+
   const handleAnswer = useCallback(
     (selected: number) => {
       if (state.status !== 'answering') return;
@@ -114,9 +179,17 @@ export function QuizSession({
           ? `${currentQuestion.id}_sub${state.subQuestionIndex}`
           : currentQuestion.id;
         recordAnswer(qId, correct, sectionId, Date.now() - (state.questionStartedAt ?? Date.now()));
+
+        // Award XP for correct answer
+        if (correct) {
+          addXP(XP_VALUES.correctAnswer);
+          setSessionXP((prev) => prev + XP_VALUES.correctAnswer);
+          setXpNotification({ amount: XP_VALUES.correctAnswer, visible: true });
+          setTimeout(() => setXpNotification((prev) => ({ ...prev, visible: false })), 1500);
+        }
       }
     },
-    [state.status, state.subQuestionIndex, state.questionStartedAt, currentQuestion, dispatch, recordAnswer, sectionId],
+    [state.status, state.subQuestionIndex, state.questionStartedAt, currentQuestion, dispatch, recordAnswer, sectionId, addXP],
   );
 
   const handleNext = useCallback(() => {
@@ -165,6 +238,8 @@ export function QuizSession({
         answers={state.answers}
         sectionName={sectionName}
         questions={state.questions}
+        sessionXP={sessionXP}
+        newBadgeIds={newBadgeIds}
         onPracticeAgain={() => {
           dispatch({ type: 'START', sectionId, count, timed: isTimed, timeLimitSec });
         }}
@@ -180,6 +255,9 @@ export function QuizSession({
   // Active quiz state
   return (
     <div className="mx-auto max-w-2xl space-y-6">
+      {/* XP Notification */}
+      <XPNotification amount={xpNotification.amount} visible={xpNotification.visible} />
+
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-white">{sectionName}</h2>

@@ -1,11 +1,14 @@
-import { Trophy, RotateCcw, ArrowLeft, Search } from 'lucide-react';
+import { Trophy, RotateCcw, ArrowLeft, Search, Star, Award } from 'lucide-react';
 import type { Question } from '../../types/question';
 import type { AnswerEntry } from '../../hooks/useQuizSession';
+import { BADGE_DEFINITIONS } from '../../data/badges';
 
 interface SessionSummaryProps {
   answers: AnswerEntry[];
   sectionName: string;
   questions: Question[];
+  sessionXP?: number;
+  newBadgeIds?: string[];
   onPracticeAgain: () => void;
   onBackToSections: () => void;
   onReviewMistakes: () => void;
@@ -15,6 +18,8 @@ export function SessionSummary({
   answers,
   sectionName,
   questions: _questions,
+  sessionXP = 0,
+  newBadgeIds = [],
   onPracticeAgain,
   onBackToSections,
   onReviewMistakes,
@@ -27,6 +32,10 @@ export function SessionSummary({
   const minutes = Math.floor(totalTimeSec / 60);
   const seconds = totalTimeSec % 60;
   const hasMistakes = correct < total;
+
+  const earnedBadgeDefs = newBadgeIds
+    .map((id) => BADGE_DEFINITIONS.find((d) => d.id === id))
+    .filter(Boolean);
 
   return (
     <div className="mx-auto max-w-md space-y-6">
@@ -58,6 +67,43 @@ export function SessionSummary({
           </div>
         </div>
       </div>
+
+      {/* Gamification summary */}
+      {sessionXP > 0 && (
+        <div className="rounded-xl bg-navy-800 p-4">
+          <div className="flex items-center gap-2">
+            <Star className="h-5 w-5 text-gold-400" />
+            <span className="font-bold text-gold-400">+{sessionXP} XP</span>
+            <span className="text-sm text-navy-400">earned this session</span>
+          </div>
+
+          {percentage === 100 && (
+            <p className="mt-1 text-xs text-gold-300">
+              Perfect session bonus included!
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* New badges */}
+      {earnedBadgeDefs.length > 0 && (
+        <div className="rounded-xl bg-navy-800 p-4">
+          <div className="mb-2 flex items-center gap-2">
+            <Award className="h-5 w-5 text-gold-400" />
+            <span className="font-bold text-white">New Badges Earned!</span>
+          </div>
+          <div className="space-y-2">
+            {earnedBadgeDefs.map((def) =>
+              def ? (
+                <div key={def.id} className="flex items-center gap-2 text-sm">
+                  <span className="font-semibold text-gold-400">{def.name}</span>
+                  <span className="text-navy-400">-- {def.description}</span>
+                </div>
+              ) : null,
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="space-y-2">
         <button
