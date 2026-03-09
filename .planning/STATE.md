@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-09T02:51:56.068Z"
-last_activity: 2026-03-09 -- Completed 03-03-PLAN.md (missions and challenges)
+status: in-progress
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-09T03:08:00Z"
+last_activity: 2026-03-09 -- Completed 04-03-PLAN.md (PBM concept trainer)
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 9
-  completed_plans: 9
-  percent: 100
+  total_plans: 12
+  completed_plans: 11
+  percent: 92
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-08)
 
 **Core value:** Make ASTB prep engaging enough that she actually wants to study every day -- turning a daunting military aptitude test into a game she's motivated to beat.
-**Current focus:** Phase 3: Gamification and Dashboard
+**Current focus:** Phase 4: Adaptive Learning and Study Intelligence
 
 ## Current Position
 
-Phase: 3 of 3 (Gamification and Dashboard)
-Plan: 3 of 3 in current phase (COMPLETE)
-Status: Phase 3 Complete
-Last activity: 2026-03-09 -- Completed 03-03-PLAN.md (missions and challenges)
+Phase: 4 of 4 (Adaptive Learning and Study Intelligence)
+Plan: 3 of 3 in current phase
+Status: Plan 04-03 Complete
+Last activity: 2026-03-09 -- Completed 04-03-PLAN.md (PBM concept trainer)
 
-Progress: [██████████] 100%
+Progress: [█████████░] 92%
 
 ## Performance Metrics
 
@@ -50,6 +50,8 @@ Progress: [██████████] 100%
 | 03 | P01 | 2min | 2 | 5 |
 | 03 | P02 | 4min | 2 | 12 |
 | 03 | P03 | 4min | 2 | 7 |
+| 04 | P01 | 3min | 2 | 11 |
+| 04 | P03 | 4min | 2 | 6 |
 
 **Recent Trend:**
 - Last 5 plans: 3min, 4min, 6min
@@ -90,6 +92,9 @@ Recent decisions affecting current work:
 - [Phase 03]: XP notification uses CSS transition with pointer-events-none overlay
 - [Phase 03]: Challenge mode uses 120s time limit (tighter than real ASTB) via timeLimitSecOverride prop
 - [Phase 03]: Missions defined as typed const array in src/data/missions.ts with objectives
+- [Phase 04]: PBM exercises use local component state only (no Zustand persistence) -- practice-oriented
+- [Phase 04]: SVG compass rose for heading visualization in directional reasoning
+- [Phase 04]: Dashboard Training Tools section for non-quiz features like PBM trainer
 
 ### Pending Todos
 
@@ -103,6 +108,6 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-09
-Stopped at: Completed 03-03-PLAN.md
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None
-Resume instructions: All 3 phases complete. Phase 4 (polish/deployment) can be planned if needed.
+Resume instructions: Phase 4 plan 03 (PBM trainer) complete. Plans 04-01 and 04-02 still pending.

@@ -26,7 +26,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PRAC-05**: Missed questions resurface via spaced repetition
 - [ ] **PRAC-06**: User can set test date and get a paced study plan
 - [x] **PRAC-07**: User can take full practice test (all sections back-to-back)
-- [ ] **PRAC-08**: PBM concept trainer with directional reasoning and multitasking exercises
+- [x] **PRAC-08**: PBM concept trainer with directional reasoning and multitasking exercises
 
 ### Gamification
 
@@ -92,7 +92,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRAC-05 | Phase 4 | Pending |
 | PRAC-06 | Phase 4 | Pending |
 | PRAC-07 | Phase 2 | Complete |
-| PRAC-08 | Phase 4 | Pending |
+| PRAC-08 | Phase 4 | Complete |
 | GAME-01 | Phase 3 | Complete |
 | GAME-02 | Phase 3 | Complete |
 | GAME-03 | Phase 3 | Complete |
