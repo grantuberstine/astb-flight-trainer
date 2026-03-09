@@ -18,6 +18,7 @@ import { TimerBar } from './TimerBar';
 import { QuitDialog } from './QuitDialog';
 import { SessionSummary } from './SessionSummary';
 import { XPNotification } from '../gamification/XPNotification';
+import { YayLizard } from './YayLizard';
 
 interface QuizSessionProps {
   sectionId: SectionId;
@@ -49,6 +50,8 @@ export function QuizSession({
   const [xpNotification, setXpNotification] = useState({ amount: 0, visible: false });
   const [sessionXP, setSessionXP] = useState(0);
   const [newBadgeIds, setNewBadgeIds] = useState<string[]>([]);
+  const [showLizard, setShowLizard] = useState(false);
+  const lizardKeyRef = useRef(0);
   const sessionCompleteHandled = useRef(false);
 
   const isTimed = mode === 'timed';
@@ -192,12 +195,15 @@ export function QuizSession({
           : currentQuestion.id;
         recordAnswer(qId, correct, sectionId, Date.now() - (state.questionStartedAt ?? Date.now()));
 
-        // Award XP for correct answer
+        // Award XP for correct answer + show lizard celebration
         if (correct) {
           addXP(XP_VALUES.correctAnswer);
           setSessionXP((prev) => prev + XP_VALUES.correctAnswer);
           setXpNotification({ amount: XP_VALUES.correctAnswer, visible: true });
           setTimeout(() => setXpNotification((prev) => ({ ...prev, visible: false })), 1500);
+          lizardKeyRef.current += 1;
+          setShowLizard(true);
+          setTimeout(() => setShowLizard(false), 2200);
         }
       }
     },
@@ -269,6 +275,9 @@ export function QuizSession({
     <div className="mx-auto max-w-2xl space-y-6">
       {/* XP Notification */}
       <XPNotification amount={xpNotification.amount} visible={xpNotification.visible} />
+
+      {/* Lizard celebration on correct answer */}
+      <YayLizard key={lizardKeyRef.current} show={showLizard} />
 
       {/* Header */}
       <div className="flex items-center justify-between">
