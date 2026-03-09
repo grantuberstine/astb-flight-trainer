@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { generateStudyPlan } from '../study-plan';
 import type { WeightedSection } from '../../types/adaptive';
-import type { SectionId } from '../../types/question';
+
 
 describe('study-plan', () => {
   describe('generateStudyPlan', () => {
